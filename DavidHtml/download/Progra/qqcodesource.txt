@@ -1,0 +1,2663 @@
+
+Listing 3.1 : Une procédure événementielle qui s'exécute lorsque l'utilisateur double-clique sur le bouton de commande
+ Private Sub cmdExit_DblClick ( )
+    lblTitle.Caption = "Nouvelle page"
+    intTotal = intCustNum + 1
+ End Sub
+
+
+
+Listing PB1.1 : Ce code active la feuille de mot de passe
+ Private Sub cmdExit_Click()
+    End
+ End Sub
+
+ Private Sub cmdTest_Click()
+ ' Cette procédure événementielle s'exécute dès que
+ ' l'utilisateur décide de tester le mot de passe saisi
+    If txtPassword.Text = "SSM" Then
+       ' Mot de passe correct
+      Beep
+      Beep       ' Affiche l'image
+      imgPassword.Picture = LoadPicture("C:\Program Files\" _
+        & "Microsoft Visual Studio\Common\Graphics\MetaFile\" _
+        & "Business\coins.wmf")
+    lblPrompt.Caption = "Aboule le fric !"
+   Else
+      lblPrompt.Caption = "Mot de passe incorrect - Essayez encore "
+      txtPassword.Text = ""   ' Efface le mauvais mot de passe
+      txtPassword.SetFocus    ' Met le focus sur la zone de texte
+   End If
+ End Sub
+
+
+
+Listing 4.1 : Le code du menu contrôle la couleur et le contenu du label
+  Private Sub mnuColorBlue_Click()
+  ' Colore le label en bleu et coche l'option de menu
+  '    Bleu. S'assure que les options Vert
+  '    et Rouge sont toutes les deux décochées.
+     lblMenu.BackColor = vbBlue
+     mnuColorBlue.Checked = True
+     mnuColorGreen.Checked = False
+     mnuColorRed.Checked = False
+  End Sub
+
+ Private Sub mnuColorGreen_Click()
+ ' Colore le label en vert et coche l'option de menu
+  '    Vert. S'assure que les options Bleu
+  '    et Rouge sont toutes les deux décochées.
+    lblMenu.BackColor = vbGreen
+    mnuColorBlue.Checked = False
+    mnuColorGreen.Checked = True
+    mnuColorRed.Checked = False
+ End Sub
+
+ Private Sub mnuColorRed_Click()
+ ' Colore le label en rouge et coche l'option de menu
+  '    Rouge. S'assure que les options Bleu
+  '    et Vert sont toutes les deux décochées.
+    lblMenu.BackColor = vbRed
+    mnuColorBlue.Checked = Fasle
+    mnuColorGreen.Checked = False
+    mnuColorRed.Checked = True
+ End Sub
+
+ Private Sub mnuFileExit_Click()
+ ' Termine le programme
+    End
+ End Sub
+
+ Private Sub mnuMessageInitial_Click()
+ ' Restaure le texte initial du label et
+ '    coche l'option de menu correspondante.
+ '    S'assure que les autres options sont décochées.
+    lblMenu.Caption = "Sélectionnez une option de menu"
+    mnuMessageInitial.Checked = True
+    mnuMessageProgramming.Checked = False
+    mnuMessageSimple.Checked = False
+ End Sub
+
+ Private Sub mnuMessageProgramming_Click()
+ ' Change le texte du label et coche
+ '    l'option de menu correspondante.
+ '    S'assure que les autres options sont décochées.
+    lblMenu.Caption = "La programmation, c'est le pied !"
+    mnuMessageInitial.Checked = False
+    mnuMessageProgramming.Checked = True
+    mnuMessageSimple.Checked = False
+ End Sub
+
+ Private Sub mnuMessageSimple_Click()
+ ' Change le texte du label et coche
+ '    l'option de menu correspondante.
+ '    S'assure que les autres options sont décochées.
+    lblMenu.Caption = "VB, c'est simple !"
+    mnuMessageInitial.Checked = False
+    mnuMessageProgramming.Checked = False
+    mnuMessageSimple.Checked = True
+ End Sub
+
+
+
+Listing PB2.1 : Ce code met en œuvre des variables et des instructions d'affectation
+  Private Sub cmdCalcPay_Click()
+  ' Calcule les trois variables de la paye.
+     Dim intHoursWorked As Integer
+     Dim sngRate As Single, sngTaxRate As Single
+     Dim curTaxes As Currency, curGrossPay As Currency
+     Dim curNetPay As Currency
+
+     ' Initialise les variables
+     ' (En réalité, ces données viendraient de
+    '  l'utilisateur ou d'un fichier).
+    intHoursWorked = 40     ' Total des heures travaillées.
+    sngRate = 7.8           ' Paye par heure.
+    sngTaxRate = 0.42       ' Pourcentage de prélèvements.
+
+    ' Calcule les sommes
+    curGrossPay = intHoursWorked * sngRate
+    curTaxes = sngTaxRate * curGrossPay
+    curNetPay = curGrossPay - curTaxes
+
+    ' Affiche les résultats dans les labels
+    lblGrossPay.Caption = curGrossPay
+    lblTaxes.Caption = curTaxes
+    lblNetPay.Caption = curNetPay
+ End Sub
+
+
+
+Listing 6.1 : Comparaison de données avec instruction If
+  If (curSales > curSalesGoal) Then
+     ' Ce commercial explose ses objectifs
+     curSalaryBonus = 10000.00
+     lblSalesNote.Caption = "Objectifs explosés !"
+     lblSalesNote.BackColor = Red
+     lblSalesNote.FontBold = True
+  End If
+  ' Le code continue ici
+
+
+
+Listing 6.2 : Test du mot de passe par une instruction If
+    If txtPassword.Text = "SSM" Then
+       ' Mot de passe correct
+       Beep
+       Beep       ' Afficher l'image
+       imgPassword.Picture = LoadPicture("C:\Program Files\"
+         & "Microsoft Visual Studio\Common\Graphics\MetaFile\"
+         & "Business\coins.wmf")
+     lblPrompt.Caption = "Aboule le fric !"
+    Else
+      lblPrompt.Caption = "Mot de passe incorrect - Essayer encore "
+      txtPassword.Text = ""   ' Efface le mauvais mot de passe
+      txtPassword.SetFocus    ' Met le focus sur la zone de texte
+   End If
+
+
+
+Listing 6.3 : Les instructions If imbriquées permettent des comparaisons plus poussées
+If (curSales > 100000.00) Then
+  If (intHrsWorked > 40) Then
+     curBonus = 7500.00
+  Else
+     curBonus = 5000.00
+  End If
+  lblBonus.Caption = "Bon boulot !"
+End If
+
+
+
+Listing 6.4 : L'instruction Exit Sub permet d'interrompre une procédure
+  Private Sub cmdCalc ()
+     If (txtSales.Text < 50000.00) Then
+       Exit Sub   ' Interrompt la procédure
+     Else
+       ' Si le chiffre de vente est au moins
+       ' de 50 000 F, exécute l'instruction
+       ' suivante, qui affiche le bonus comme
+       ' pourcentage des ventes.
+       lblBonus.Caption = txtSales.Text * .05
+    End If
+ End Sub
+
+
+
+Listing 6.5 : Le mot clé ElseIf permet de combiner les instructions If... Else
+  If (intHours <= 40) Then
+     curOverTime = 0.0
+  ' Interroge les heures entre 40 et 50,
+  ' et paye les 50 % d'heures sup.
+  ElseIf (intHours <= 50) Then
+        curOverTime = (intHours - 40) * 1.5 * sngRate
+      Else
+        ' Au-delà de 50, les heures doivent être payées
+        ' doubles  ; entre 40 et 50 heures, la prime
+       ' est de 50 %.
+       curOverTime = ((intHours - 50) * 2 + (10 * 1.5)) * sngRate
+ End If
+
+
+
+Listing 6.6 : Les instructions Select Case comparent des valeurs multiples
+  ' Interrogation d'une note scolaire
+  Select Case txtGrade.Text
+    Case "A"
+       lblAnnounce.Caption = "Très bien"
+    Case "B"
+       lblAnnounce.Caption = "Bien"
+    Case "C"
+       lblAnnounce.Caption = "Peut mieux faire"
+    Case "D"
+      lblAnnounce.Caption = "Médiocre"
+   Case "E"
+      lblAnnounce.Caption = "Mauvais"
+   Case Else
+      lblAnnounce.Caption = "Note non validée"
+ End Select
+
+
+
+Listing 6.7 : Comparaisons conditionnelles dans Select Case
+  ' Test d'une note scolaire
+  Select Case txtGrade.Text
+    Case Is >= 18
+       lblAnnounce.Caption = "Très bien"
+    Case Is >= 15
+       lblAnnounce.Caption = "Bien"
+    Case Is >= 12
+       lblAnnounce.Caption = "Peut mieux faire"
+    Case Is >= 10
+      lblAnnounce.Caption = "Médiocre"
+   Case Else
+      lblAnnounce.Caption = "Mauvais"
+ End Select
+
+
+
+Listing 6.8 : Comparaisons de valeurs séquentielles dans Select Case
+  ' Interrogation d'une note scolaire
+  Select Case txtGrade.Text
+    Case 0 To 9
+       lblAnnounce.Caption = "Mauvais"
+    Case 10 To 11
+       lblAnnounce.Caption = "Médiocre"
+    Case 12 To 14
+       lblAnnounce.Caption = "Peut mieux faire"
+    Case 15 To 17
+      lblAnnounce.Caption = "Bien"
+   Case Else
+      lblAnnounce.Caption = "Très bien"
+ End Select
+
+
+
+Listing 6.9 : L'instruction Do existe en plusieurs formats
+  Do While intCtr <= 10
+    ' Cette boucle fait la même chose
+    ' que celle de la Figure 6.2
+    lblOut.Caption = intCtr
+    intCtr = intCtr + 1
+  Loop
+
+
+
+Listing 6.10 : L'utilisateur n'entre pas toujours des données valides du premier coup
+  Dim strAns As String
+  '
+  ' L'utilisateur doit répondre par Oui ou Non.
+  lblPrompt.Caption = "Continuer ? (Oui ou Non)"
+  '
+  ' Stockage de la réponse dans la
+  ' variable chaîne nommée strAns.
+  ' Test de la réponse et réitération
+  ' de la question si nécessaire.
+ Do While (strAns <> "Oui" And strAns <> "Non")
+   Beep    ' Avertissement
+   lblError.Caption = "Merci de répondre par Oui ou Non"
+   ' Stockage de la réponse dans la
+   ' variable chaîne nommée strAns (rebelote).
+ Loop
+ ' Effacement du message d'erreur.
+ lblError.Caption = Null
+
+
+
+Listing 6.11 : Les boucles For permettent d'incrémenter une variable compteur
+  For intCtr = 1 to 10
+    lblOut.Caption = intCtr
+  Next
+
+
+
+Listing 6.12 : Boucle For avec valeur de Step positive (incrémentation)
+  For intCtr = 10 to 100 Step 5
+    lblOut.Caption = intCtr
+  Next
+
+
+
+Listing 6.13 : Boucle For avec valeur de Step négative (décrémentation)
+  For intCtr = 1000 to 0 Step -100
+    lblOut.Caption = intCtr
+  Next
+
+
+
+Listing 7.1 : Code pour tester l'état de shift
+  Private Sub Text1_KeyDown(KeyCode As Integer, Shift As Integer)
+    Dim intShiftState As Integer
+    intShiftState = Shift And 7  ' "And" binaire
+    Select Case intShiftState
+      Case 1
+        ' Code pour les combinaisons Maj
+      Case 2
+        ' Code pour les combinaisons Ctrl
+      Case 3
+       ' Code pour les combinaisons Alt
+     Case 4
+       ' Code pour les combinaisons Maj-Ctrl
+     Case 5
+       ' Code pour les combinaisons Maj-Alt
+     Case 6
+       ' Code pour les combinaisons Ctrl-Alt
+     Case 7
+       ' Code pour les combinaisons Maj-Ctrl-Alt
+     End Select
+ End Sub
+
+
+
+Listing PB3.1 : Réception du choix de l'utilisateur par les boutons d'option
+  Private Sub cmdSelect_Click()
+  ' Vérifier l'absence d'erreur puis afficher
+  ' la feuille selon les choix de l'utilisateur.
+    Dim strMsg As String    ' Valeur renvoyée par la boîte de message
+    If ((optCheck.Value = False) And (optOption.Value = False)) Then
+      strMsg = MsgBox("Vous devez sélectionner une option", vbCritical, "Erreur !")
+    ElseIf (optCheck.Value = True) Then
+           frmFlagsCheck.Show   ' Option cases à cocher.
+        Else
+          frmFlagsOpt.Show   ' Option boutons d'option.
+   End If
+ End Sub
+
+ Private Sub Form_Load()
+ ' Désélectionner tous les boutons d'option.
+   optCheck.Value = False
+   optOption.Value = False
+ End Sub
+ Private Sub cmdExit_Click()
+ ' fermer le programme.
+   End
+ End Sub
+
+
+
+Listing PB3.2 : Affichage des drapeaux pour chaque case cochée
+  Private Sub chkEngland_Click()
+    ' Case cochée = drapeau affiché.
+    If chkEngland.Value = 1 Then
+      imgEngland.Visible = True
+    Else
+      imgEngland.Visible = False
+    End If
+  End Sub
+  Private Sub chkItaly_Click()
+   ' Case cochée = drapeau affiché.
+   If chkItaly.Value = 1 Then
+     imgItaly.Visible = True
+   Else
+     imgItaly.Visible = False
+   End If
+ End Sub
+ Private Sub chkSpain_Click()
+   ' Case cochée = drapeau affiché.
+   If chkSpain.Value = 1 Then
+     imgSpain.Visible = True
+   Else
+     imgSpain.Visible = False
+   End If
+ End Sub
+ Private Sub chkMexico_Click()
+   ' Case cochée = drapeau affiché.
+   If chkMexico.Value = 1 Then
+     imgMexico.Visible = True
+   Else
+     imgMexico.Visible = False
+   End If
+ End Sub
+ Private Sub chkFrance_Click()
+   ' Case cochée = drapeau affiché.
+   If chkFrance.Value = 1 Then
+     imgFrance.Visible = True
+   Else
+     imgFrance.Visible = False
+   End If
+ End Sub
+ Private Sub chkUSA_Click()
+   ' Case cochée = drapeau affiché.
+   If chkUSA.Value = 1 Then
+     imgUSA.Visible = True
+   Else
+     imgUSA.Visible = False
+   End If
+ End Sub
+ Private Sub cmdReturn_Click()
+ ' Retour à la feuille de sélection.
+   frmFlagsCheck.Hide
+   frmSelect.Show
+ End Sub
+
+
+
+Listing PB3.3 : Affichage du drapeau selon le bouton d'option sélectionné
+  Private Sub optEngland_Click()
+    ' Bouton sélectionné = drapeau affiché.
+    If optSmall.Value = True Then
+       imgEngland.Height = 480
+       imgEngland.Width = 480
+    Else  ' Grande taille.
+       imgEngland.Height = 2800
+       imgEngland.Width = 2800
+    End If
+   imgEngland.Visible = True
+    ' Masquer les autres drapeaux.
+    imgItaly.Visible = False
+    imgSpain.Visible = False
+    imgMexico.Visible = False
+    imgFrance.Visible = False
+    imgUSA.Visible = False
+  End Sub
+  Private Sub optItaly_Click()
+    ' Bouton sélectionné = drapeau affiché.
+   If optSmall.Value = True Then
+       imgItaly.Height = 480
+       imgItaly.Width = 480
+    Else  ' Grande taille.
+       imgItaly.Height = 2800
+       imgItaly.Width = 2800
+    End If
+    imgItaly.Visible = True
+    ' Masquer les autres drapeaux.
+    imgEngland.Visible = False
+   imgSpain.Visible = False
+    imgMexico.Visible = False
+    imgFrance.Visible = False
+    imgUSA.Visible = False
+  End Sub
+  Private Sub optSpain_Click()
+  ' Bouton sélectionné = drapeau affiché.
+    If optSmall.Value = True Then
+       imgSpain.Height = 480
+       imgSpain.Width = 480
+   Else  ' Grande taille
+       imgSpain.Height = 2800
+       imgSpain.Width = 2800
+    End If
+    imgSpain.Visible = True
+    ' Masquer les autres drapeaux.
+    imgItaly.Visible = False
+    imgEngland.Visible = False
+    imgMexico.Visible = False
+Listing PB3.3. continued
+    imgFrance.Visible = False
+   imgUSA.Visible = False
+  End Sub
+  Private Sub optMexico_Click()
+    ' Bouton sélectionné = drapeau affiché.
+    If optSmall.Value = True Then
+       imgMexico.Height = 480
+       imgMexico.Width = 480
+    Else  ' Grande taille
+       imgMexico.Height = 2800
+       imgMexico.Width = 2800
+   End If
+    imgMexico.Visible = True
+    ' Masquer les autres drapeaux.
+    imgItaly.Visible = False
+    imgSpain.Visible = False
+    imgEngland.Visible = False
+    imgFrance.Visible = False
+    imgUSA.Visible = False
+  End Sub
+  Private Sub optFrance_Click()
+ ' Bouton sélectionné = drapeau affiché.
+    If optSmall.Value = True Then
+       imgFrance.Height = 480
+       imgFrance.Width = 480
+    Else  ' Grande taille
+       imgFrance.Height = 2800
+       imgFrance.Width = 2800
+    End If
+    imgFrance.Visible = True
+    ' Masquer les autres drapeaux.
+   imgItaly.Visible = False
+    imgSpain.Visible = False
+    imgMexico.Visible = False
+    imgEngland.Visible = False
+    imgUSA.Visible = False
+  End Sub
+  Private Sub optUSA_Click()
+  ' Bouton sélectionné = drapeau affiché.
+    If optSmall.Value = True Then
+       imgUSA.Height = 480
+      imgUSA.Width = 480
+    Else  ' Grande taille
+       imgUSA.Height = 2800
+       imgUSA.Width = 2800
+    End If
+    imgUSA.Visible = True
+    ' Masquer les autres drapeaux.
+    imgItaly.Visible = False
+    imgSpain.Visible = False
+    imgMexico.Visible = False
+   imgFrance.Visible = False
+    imgEngland.Visible = False
+  End Sub
+  Private Sub cmdReturn_Click()
+  ' Retour à la feuille de sélection.
+    frmFlagsOpt.Hide
+    frmSelect.Show
+  End Sub
+  Private Sub optSmall_Click()
+  ' Masquer tous les drapeaux affichés.
+  ' Les drapeaux seront maintenant petits.
+     imgEngland.Visible = False
+     imgItaly.Visible = False
+     imgSpain.Visible = False
+     imgMexico.Visible = False
+     imgFrance.Visible = False
+     imgUSA.Visible = False
+     ' Désélectionner tous les boutons d'option
+     optEngland.Value = False
+     optItaly.Value = False
+    optSpain.Value = False
+     optMexico.Value = False
+     optFrance.Value = False
+     optUSA.Value = False
+  End Sub
+  Private Sub optLarge_Click()
+  ' Masquer tous les drapeaux affichés.
+  ' Les drapeaux seront maintenant petits.
+     imgEngland.Visible = False
+     imgItaly.Visible = False
+    imgSpain.Visible = False
+     imgMexico.Visible = False
+     imgFrance.Visible = False
+     imgUSA.Visible = False
+     ' Désélectionner tous les boutons d'option
+     optEngland.Value = False
+     optItaly.Value = False
+     optSpain.Value = False
+     optMexico.Value = False
+     optFrance.Value = False
+    optUSA.Value = False
+ End Sub
+
+
+
+Listing 8.1 : La première procédure passe des arguments à la seconde
+  Private Sub GetTotal()
+  ' Cette procédure additionne les valeurs d'un
+  ' formulaire, puis envoie le total et le pourcentage
+  ' d'abattement à la procédure qui calcule la taxe.
+     Dim curTotal As Currency
+     Dim sngDisc As Single   ' Special tax discount
+     '
+     ' Calculer le total d'après le formulaire.
+     curTotal = txtSale1.Text + txtSale2.Text + txtSale3.txt
+    '
+    ' Envoyer le total à la procédure de taxation.
+    Call SalesTax(curTotal, sngDisc)
+ End Sub
+
+ Public Sub SalesTax(curTotal As Currency, sngRateDisc As Single)
+ ' Calculer la taxe et déduire l'abattement.
+   Dim curSalesTax As Currency
+   Dim intMsg As Integer  ' For MsgBox()
+   '
+   ' Calcul de la taxe de vente
+   ' à 3,5 % du total.
+   curSalesTax = (curTotal * .035)
+   '
+   ' Déduction du pourcentage d'abattement.
+   curSalesTax = curSalesTax - (sngRateDisc * curTotal)
+   '
+   ' Afficher le montant total de la taxation.
+   intMsg = MsgBox("Taxation totale : " & curSalesTax)
+   '
+   ' Après exécution, les procédures redonnent
+   ' la main à la procédure appelante.
+ End Sub
+
+
+
+ Listing 8.2 : Les fonctions renvoient à la procédure appelante une valeur unique
+  ' La procédure appelante commence ici.
+  Private Sub CP()
+     Dim varR As Variant    ' Variables locales à l'origine
+     Dim varV As Variant    ' de la valeur renvoyée.
+     Dim intI As Integer    ' Contiendra la valeur renvoyée.
+
+     varR = 32              ' Valeurs initiales.
+     varV = 64
+
+    intI = RF(varR, varV)  ' Passe varR et varV.
+                           ' intI reçoit la valeur renvoyée.
+    MsgBox("Après renvoi, intI vaut " & intI)
+    MsgBox("Après renvoi, varR vaut " & varR)
+    MsgBox("Après renvoi, varV vaut " & varV)
+
+ End Sub
+ ' La fonction appelée commence ici.
+ Public Function RF (varR As Variant, ByVal varV As Variant) As Integer
+ ' varR est reçu par référence et varV par valeur.
+    varR = 81         ' Modifie les deux arguments.
+    varV = varV + 10
+    ' Définit la valeur de renvoi.
+    RF = varR + varV
+ End Function
+
+
+
+ Listing 8.3 : Vérification de variables vides
+  ' Interroge les fonctions Is().
+  Dim var1 As Variant, var2 As Variant,
+  Dim var3 As Variant, var4 As Variant
+  Dim intMsg As Integer   ' valeur de renvoi de MsgBox
+  ' Affectations de valeurs d'exemple.
+  var1 = 0        ' Valeur zéro.
+  var2 = Null     ' Valeur Null.
+  var3 = ""       ' Chaîne Null.
+  ' Appelle chaque fonction Is().
+ If IsEmpty(var1) Then
+    intMsg = MsgBox("var1 est vide.", vbOKOnly)
+ End If
+ If IsEmpty(var2) Then
+    intMsg = MsgBox("var2 est vide.", vbOKOnly)
+ End If
+ If IsEmpty(var3) Then
+    intMsg = MsgBox("var3 est vide.", vbOKOnly)
+ End If
+ If IsEmpty(var4) Then
+    intMsg = MsgBox("var4 est vide.", vbOKOnly)
+ End If
+
+
+
+Listing 8.4 : VarType() permet de déterminer le type des données passées
+  Private Sub PrntType(varA)  ' Variant par défaut.
+    Dim intMsg As Integer     ' Valeur de renvoi de MsgBox().
+    Select Case VarType(varA) ' VarType() renvoie un entier.
+      Case 0
+        intMsg = MsgBox("L'argument est de type Empty.")
+      Case 1
+        intMsg = MsgBox("L'argument est de type Null.")
+      Case 2
+        intMsg = MsgBox("L'argument est de type Integer.")
+     Case 3
+        intMsg = MsgBox("L'argument est de type Long.")
+      Case 4
+        intMsg = MsgBox("L'argument est de type Single.")
+      Case 5
+        intMsg = MsgBox("L'argument est de type Double.")
+      Case 6
+        intMsg = MsgBox("L'argument est de type Currency.")
+      Case 7
+        intMsg = MsgBox("L'argument est de type Date.")
+     Case 8
+        intMsg = MsgBox("L'argument est de type String.")
+      Case 9
+        intMsg = MsgBox("L'argument est de type Object.")
+      Case 10
+        intMsg = MsgBox("L'argument est de type Error.")
+      Case 11
+        intMsg = MsgBox("L'argument est de type Boolean.")
+      Case 12
+        intMsg = MsgBox("L'argument est de type tableau de Variant.")
+     Case 13
+        intMsg = MsgBox("L'argument est de type objet d'accès aux données.")
+      Case 14
+        intMsg = MsgBox("L'argument est de type Decimal.")
+      Case 17
+        intMsg = MsgBox("L'argument est de type Byte.")
+      Case Else
+        intMsg = MsgBox("L'argument est de type Array (tableau).")
+    End Select
+  End Sub
+
+
+
+Listing 8.5 : Contrairement à CStr(), Str() fait précéder les nombres positifs d'un blanc
+  Private Sub convStr ()
+    Dim str1 As String, s2 As String
+    Dim intMsg As Integer   ' Clic sur le bouton.
+    str1 = CStr(12345)
+    str2 = Str(12345)
+    intMsg = MsgBox("***" & str1 & "***")
+    intMsg = MsgBox("***" & str2 & "***")
+  End Sub
+
+
+
+Listing 8.6 : Cette fonction se sert des fonctions de chaînes pour inverser une chaîne
+  Public Function ReverseIt (strS As String, ByVal n As Integer) As String
+  ' Attend une chaîne, ainsi qu'un entier indiquant
+  ' le nombre de caractères à inverser.
+  ' Inverse le nombre spécifié de
+  ' caractères dans la chaîne spécifiée.
+  ' Renvoie la chaîne inversée.
+  '
+  ' Inverse les n premiers caractères de la chaîne.
+
+     Dim strTemp As String, intI As Integer
+
+      If n > Len(strS) Then n = Len(strS)
+      For intI = n To 1 Step -1
+          strTemp = strTemp + Mid(strS, intI, 1)
+      Next intI
+      ReverseIt = strTemp + Right(strS, Len(strS) - n)
+  End Function
+
+
+
+Listing 8.7 : Chronométrage du temps de réponse de l'utilisateur
+  Public Sub CompTime ()
+  ' Cette procédure mesure le temps de réponse.
+    Dim intMsg As Integer   ' Valeur de renvoi de MsgBox().
+    Dim varBefore, varAfter, varTimeDiff As Variant
+    Dim intMathAns As Integer
+    varBefore = Timer    ' Valeur au moment de la question.
+    intMathAns = Inputbox("Combien font 150 + 235 ?")
+    varAfter = Timer     ' Valeur au moment de la réponse.
+    ' La différence entre les deux valeurs représente
+   ' le temps de réponse de l'utilisateur.
+   varTimeDiff = varAfter - varBefore
+   intMsg = MsgBox("Vous avez mis " + Str(varTimeDiff) & " secondes !")
+ End Sub
+
+
+
+Listing 8.8 : Ce code calcule le prochain jour ouvrable après la date spécifiée
+  Function DueDate (dteAnyDate) As Variant
+  ' Attend une valeur date.
+  ' Calcule le prochain jour ouvrable
+  ' après la date spécifiée.
+  ' Renvoie la date de ce jour-là.
+
+      Dim varResult As Variant
+
+      If Not IsNull(dteAnyDate) Then
+        varResult = DateSerial(Year(dteAnyDate), Month(dteAnyDate) + 1, 1)
+        If Weekday(varResult) = 1 Then      ' Dimanche : ajouter un jour.
+            DueDate = Result + 1
+        ElseIf Weekday(varResult) = 7 Then  ' Samedi : ajouter deux jours.
+            DueDate = varResult + 2
+        Else
+            DueDate = varResult
+        End If
+      Else
+          varResult = Null
+     End If
+ End Function
+
+
+
+Listing 8.9 : Format() appliqué aux nombres
+  strS = Format(9146, "|######|")  ' |9146|
+  strS = Format(2652.2, "00000.00")  ' 02652.20
+  strS = Format(2652.2, "#####.##")  ' 2652.2
+  strS = Format(2652.216, "#####.##")  ' 2652.22
+  strS = Format(45, "+###")  ' +45
+  strS = Format(45, "-###")  ' -45
+  strS = Format(45, "###-")  ' 45-
+  strS = Format(2445, "####.## FF")  ' 2445. FF
+  strS = Format(2445, "####.00 FF")  ' 2445.00 FF
+ strS = Format(2445, "00H00")  ' 24H45
+
+
+
+Listing 8.10 : Format() appliqué aux dates et heures
+  Dim varD As Variant
+  varD = Now     ' Suppose comme date fictive
+                 ' le 21 mai 1999 à 12:30 précises.
+  strND = Format(varD, "c") ' 21/5/99 12:30:00
+  strND = Format(varD, "w") ' 6
+  strND = Format(varD, "ww")' 22
+  strND = Format(varD, "dddd") ' vendredi
+  strND = Format(varD, "q") ' 2
+  strND = Format(varD, "hh") ' 12
+ strND = Format(varD, "d mmmm h:nn:ss")  ' "21 mai 12:30:00"
+
+
+
+Listing 9.1 : Gestion du bouton Annuler
+  Private Sub mnuViewColor_Click()
+    cdbColor.CancelError = True  ' Un clic sur Annuler
+                                 ' équivaut à une erreur.
+    On Error Goto dbErrHandler  ' Bascule vers l'étiquette en cas d'erreur.
+
+    ' Définit la propriété Flags.
+    cdbColor.Flags = cdlCCFullOpen + cdlCCHelpButton ' Affichage complet.
+  Color DB
+    ' Affiche la boîte de dialogue Couleur.
+   cdbColor.ShowColor
+
+  ' Définit la couleur d'arrière-plan de la
+  ' feuille selon les choix de l'utilisateur.
+    frmTitle.ForeColor = cdbColor.Color
+    Exit Sub   ' Fin de la procédure normale.
+  dbErrHandler:
+    ' L'utilisateur ayant cliqué sur Annuler,
+    ' la procédure doit être ignorée.
+    Exit Sub
+ End Sub
+
+
+
+Listing 9.2 : Afficher la boîte de dialogue Police pour que vos utilisateurs choisissent dans une liste le style et la taille de la police
+  ' Définir les valeurs de Flags.
+  CdbFont.Flags = cdlCFBoth Or cdlCFEffects
+  CdbFont.ShowFont  ' Affiche la boîte de dialogue.
+  ' Définit les propriétés du label qui
+  ' reflétera les choix de l'utilisateur.
+  LblMessage.Font.Name = CdbFont.FontName
+  LblMessage.Font.Size = CdbFont.FontSize
+  LblMessage.Font.Bold = CdbFont.FontBold
+  LblMessage.Font.Italic = CdbFont.FontItalic
+ LblMessage.Font.Underline = CdbFont.FontUnderline
+ LblMessage.FontStrikethru = CdbFont.FontStrikethru
+ LblMessage.ForeColor = CdbFont.Color
+
+
+
+Listing 9.3 : Gestion de la boîte de dialogue Imprimer
+  Private mnuFilePrint_Click()
+     Dim intBegin As Integer, intEnd As Integer
+     Dim intNumCopies As Integer, intI As Integer
+     ' Suppose que Cancel est définie comme True.
+
+     On Error Goto dbErrHandler
+     ' Affiche la boîte de dialogue Imprimer.
+     cbdPrint.ShowPrinter
+     ' Reçoit les valeurs sélectionnées par l'utilisateur.
+    intBegin = cbdPrint.FromPage
+    intEnd = cbdPrint.ToPage
+    intNumCopies = cbdPrint.Copies
+    '
+    ' Imprime le nombre de copies demandé.
+    For intI = 1 To intNumCopies
+      ' Ici, code chargé de gérer la sortie imprimante.
+    Next intI
+    Exit Sub
+
+ dbErrHandler:
+   ' L'utilisateur a appuyé sur Annuler.
+   Exit Sub
+ End Sub
+
+
+
+Listing 10.1 : Déterminer quelles touches ont été frappées conjointement à l'événement souris
+  Private Sub imgMouse_MouseDown(intButton As Integer, intShift As Integer, sngX As Single, sngY As Single)
+    Dim intShiftState As Integer
+    intShiftState = intShift And 7  ' And binaire.
+    Select Case intShiftState
+      Case 1
+        ' Combinaisons Maj.
+      Case 2
+        ' Combinaisons Ctrl.
+      Case 3
+       ' Combinaisons Alt.
+     Case 4
+       ' Combinaisons Maj-Ctrl.
+     Case 5
+       ' Combinaisons Maj-Alt.
+     Case 6
+       ' Combinaisons Ctrl-Alt.
+     Case 7
+       ' Combinaisons Maj-Ctrl-Alt.
+     End Select
+ End Sub
+
+
+
+ Listing 10.2 : La procédure événementielle initialise le contrôle ListBox
+  Private Sub Form_Load()
+    ' Initialise les valeurs du contrôle.
+    lstColors.AddItem "Rouge"
+    lstColors.AddItem "Bleu"
+    lstColors.AddItem "Vert"
+    lstColors.AddItem "Jaune"
+    lstColors.AddItem "Orange"
+    lstColors.AddItem "Blanc"
+  End Sub
+
+
+
+Listing 10.3 : Les tableaux simplifient le stockage des données
+  Private Sub association ()
+  ' Reçoit puis affiche les noms et les sommes dues.
+    Dim strFamilyName(35) As String ' Réserve les éléments du tableau.
+    Dim curFamilyDues(35) As Currency
+    Dim intSub As Integer
+    Dim intMsg As Integer ' Valeur de renvoi de MsgBox().
+
+    ' Collecte les données.
+    For intSub = 1 To 35
+     strFamilyName(intSub) = InputBox("Famille suivante ?")
+     curFamilyDues(intSub) = InputBox("Cotisations dues ?")
+   Next intSub
+
+   ' Les données peuvent maintenant être affichées.
+   ' (Cet exemple utilise à cette fin des boîtes
+   '  de message pour simplifier les choses.)
+   intSub = 1 ' Initialise le premier indice.
+   Do
+     intMsg = MsgBox("Famille numéro  " & intSub & " : " & strFamilyName(intSub))
+     intMsg = MsgBox("Cotisations dues : " & curFamilyDues(intSub))
+     intSub = intSub + 1
+   Loop Until (intSub > 35)
+ End Sub
+
+
+
+Listing 10.4 : On peut déclarer plus d'éléments que l'on n'a de données
+  Private Sub varyNumb ()
+  ' Reçoit puis affiche les noms et les sommes dues.
+    Dim strFamilyName(500) As String    ' On vise large.
+    Dim curFamilyDues(500) As Currency
+    Dim intSub As Integer, intNumFam As Integer
+    Dim intMsg As Integer ' Valeur de renvoi de MsgBox().
+    intNumFam = 1
+    ' La boucle demande les noms et les sommes dues
+    ' jusqu'à ce que l'utilisateur appuie sur Entrée
+   ' sans avoir saisi d'information. Dès qu'une chaîne
+   ' nulle est entrée, la boucle Do-Loop s'arrête
+   ' après avoir stocké la dernière entrée.
+   Do
+     strFamilyName(intNumFam) = InputBox("Famille suivante ?")
+     If (strFamilyName(intNumFam) = "") Then Exit Do      ' Interruption.
+     curFamilyDues(intNumFam) = InputBox("Cotisations dues ?")
+     intNumFam = intNumFam + 1 ' Ajoute 1 Add à la variable indice.
+   Loop Until (intNumFam > 500)
+
+  ' Lorsque la dernière boucle se termine, intNumFam contient
+  ' 1 de plus que le nombre réel d'entrées.
+
+  ' Affiche toutes les données.
+  For intSub = 1 To intNumFam - 1
+     intMsg = MsgBox("Famille numéro  " & intSub & " : " & strFamilyName(intSub))
+     intMsg = MsgBox("Cotisations dues : " & curFamilyDues(intSub))
+ Next intSub
+ End Sub
+
+
+
+Listing 10.5 : Programme de recherche de données
+  Private Sub salary ()
+  ' Stocke 12 mois de salaires, puis affiche les mois sélectionnés.
+    Dim curSal(1 To 12) As Currency   ' Réserve des éléments pour 12 salaires.
+    Dim intSub As Integer   ' Indice de boucle.
+    Dim intNum As Integer   ' Mois sélectionné.
+    Dim intMsg As Integer   ' Valeur de renvoi de MsgBox().
+    Dim strAns As String
+
+    For intSub = 1 To 12
+     curSal(intSub) = InputBox("Salaire pour le mois de " & Str(intSub) & " ?", 0.00)
+   Next intSub
+
+   ' Demande le numero du mois.
+   Do
+     intNum = InputBox("Quel mois voulez-vous consulter ? (1-12) ")
+     intMsg = MsgBox("Salaires pour le mois de " & Str(intNum) & " : " & curSal(intNum))
+   strAns = InputBox("Autre consultation ? (O/N)")
+   Loop While (strAns = "O" Or strAns = "o")
+ End Sub
+
+
+
+Listing 10.6 : L'utilisateur indique au programme la fin de la série de données
+  Private Sub tempAvg ()
+  ' Demande une liste de températures puis calcule la moyenne.
+    Dim sngTemp(1 To 50) As Single ' Maximum = 50
+    Dim sngTotalTemp As Single    ' Reçoit le total.
+    Dim sngAvgTemp As Single
+    Dim intSub As Integer         ' Indice.
+    Dim intMsg As Integer         ' Valeur de renvoi de MsgBox().
+
+    ' Demande à l'utilisateur chaque température.
+   For intSub = 1 To 50   ' Maximum.
+      sngTemp(intSub) = InputBox("Température suivante ?(-99 pour terminer) ")
+      ' Si l'utilisateur veut arrêter, décrémente de 1 et sort de la boucle.
+      If (sngTemp(intSub) = -99) Then
+        intSub = intSub - 1   ' Décrémente de 1.
+        Exit For
+      End If
+      sngTotalTemp = sngTotalTemp + sngTemp(intSub)    ' Additionne le total.
+
+   Next intSub
+   ' Calcule la moyenne.
+   sngAvgTemp = sngTotalTemp / intSub
+   intMsg = MsgBox("Température moyenne : " & sngAvgTemp)
+ End Sub
+
+
+
+Listing PB4.1 : Initialiser la zone de liste et interroger les sélections multiples
+  Private Sub Form_Load()
+    ' S'exécute au chargement de la feuille.
+    lstFirstList.AddItem "Chicago"
+    lstFirstList.AddItem "Dallas"
+    lstFirstList.AddItem "Seattle"
+    lstFirstList.AddItem "Washington"
+    lstFirstList.AddItem "Houston"
+    lstFirstList.AddItem "Dayton"
+  End Sub
+
+ Private Sub lstFirstList_Click()
+   ' Met à jour les six zones de texte en fonction des .
+   ' éléments sélectionnés dans la première zone de liste.
+   If lstFirstList.Selected(0) Then
+     txtChicago.Text = "Sélectionné"
+   Else
+     txtChicago.Text = "Non sélectionné"
+   End If
+
+  If lstFirstList.Selected(1) Then
+     txtDallas.Text = "Sélectionné"
+   Else
+     txtDallas.Text = "Non sélectionné"
+   End If
+
+   If lstFirstList.Selected(2) Then
+     txtSeattle.Text = "Sélectionné"
+   Else
+     txtSeattle.Text = "Non sélectionné"
+  End If
+
+   If lstFirstList.Selected(3) Then
+     txtWashington.Text = "Sélectionné"
+   Else
+     txtWashington.Text = "Non sélectionné"
+   End If
+
+   If lstFirstList.Selected(4) Then
+     txtHouston.Text = "Sélectionné"
+  Else
+     txtHouston.Text = "Non sélectionné"
+   End If
+
+   If lstFirstList.Selected(5) Then
+     txtDayton.Text = "Sélectionné"
+   Else
+     txtDayton.Text = "Non sélectionné"
+   End If
+
+ End Sub
+
+
+
+Listing PB5.1 : Répondre aux événements souris
+  Private Sub Form_Click()
+    txtMouse.Text = "Vous avez cliqué sur la feuille"
+    Beep    ' Signale l'événement Click.
+  End Sub
+  Private Sub Form_DblClick()
+    txtMouse.Text = "Vous avez double-cliqué sur la feuille"
+  End Sub
+
+  Private Sub Form_MouseDown(intButton As Integer, intShift As Integer, sngX As Single, sngY As Single)
+   ' Clic sur la feuille.
+    txtMouse.Text = "Clic sur la feuille à la position " & sngX & "," & sngY
+ End Sub
+ ' Arguments ignorés dans la procédure précédente.
+
+  Private Sub Form_MouseMove(intButton As Integer, intShift As Integer, sngX As  Single, sngY As Single)
+    txtMouse.Text = "Déplacement de la souris..."
+  End Sub
+  ' Arguments ignorés dans la procédure précédente.
+
+ Private Sub imgMouse_Click()
+   txtMouse.Text = "Vous avez cliqué sur l'image"
+ End Sub
+
+ Private Sub imgMouse_DblClick()
+   txtMouse.Text = "Vous avez double-cliqué sur l'image"
+ End Sub
+
+ Private Sub imgMouse_MouseDown(intButton As Integer, intShift As Integer, sngX As Single, sngY As Single)
+ '
+ ' Clic sur l'image.
+   txtMouse.Text = "Clic sur l'image à la position " & sngX & "," & sngY
+ End Sub
+
+ Private Sub imgMouse_MouseMove(intButton As Integer, intShift As Integer, sngX As Single, sngY As Single)
+   txtMouse.Text = "Vous vous êtes déplacé sur l'image"
+ End Sub
+
+
+
+Listing 11.1 : La méthode Print écrit directement sur la feuille
+ Private Sub Form_Click()
+ ' Exemple de méthode Print.
+   Dim strString As String
+   strString = "Visual Basic"
+   ' Affiche trois fois la chaîne.
+   Form1.Print strString & " " & strString & " " strString
+ End Sub
+
+
+
+ Listing 11.2 : Le point-virgule empêche les sauts de lignes
+  Private Sub Form_Click ()
+    Dim strString As String
+    strString = "Visual Basic"
+    Form1.Print "*"; Spc(5); strString;   ' Remarquez le point-virgule.
+    Form1.Print Spc(2); strString
+  End Sub
+
+
+
+Listing 11.3 : Espacement de la sortie de Print à l'aide des fonctions Tab() et Spc()
+  Private Sub Form_Click()
+    Dim strString As String
+    strString = "Visual Basic"
+
+    Form1.Print "*"; Tab(5); strString; Tab(20); strString
+    Form1.Print "*"; Spc(5); strString; Spc(20); strString
+ End Sub
+
+
+
+Listing 11.4 : Print permet aussi d'insérer des lignes vierges
+  Private Sub Form_Click()
+    Dim strString As String
+    Dim CurLine As Integer
+
+    CurLine = 1
+    strString = "Visual Basic"
+
+    ' Affiche la ligne.
+    Form1.Print strString & " est sur la ligne n°" & CurLine
+
+   For CurLine = 2 To 6
+     Form1.Print     ' Insère des lignes vierges.
+   Next CurLine
+
+   ' Affiche la ligne.
+   Form1.Print strString & " est sur la ligne n°" & CurLine
+ End Sub
+
+
+
+Listing 11.5 : Positionnement de la sortie à l'aide des propriétés CurrentX et CurrentY
+  Private Sub Form_Click()
+    ' Définition de l'echelle
+    Form1.ScaleMode = VbCharacters
+
+    Form1.CurrentX = 20   ' Déplacement horizontal de 20 caractères.
+    Form1.CurrentY = 6    ' Déplacement vertical de 6 lignes.
+    Form1.Print "Vertical et horizontal "
+
+    Form1.CurrentX = 0   ' Retour vers la gauche.
+   Form1.CurrentY = 0   ' Retour vers le haut.
+   Form1.Print "Coin supérieur gauche"
+ End Sub
+
+
+
+Listing 11.6 : La procédure Property Get renvoie la valeur de la propriété
+  Public Property Get BottomTitle()
+    ' Cette procédure renvoie la valeur
+    ' de la propriété BottomTitle,
+    ' valeur en fait contenue dans
+    ' la variable publique strTitle.
+     BottomTitle = strTitle
+  End Property
+
+
+
+Listing 11.7 : La procédure Property Let affecte une valeur à la propriété
+  Public Property Let BottomTitle(strTitleEntered)
+    ' Cette procédure affecte à la variable
+    ' strTitle les valeurs que le programme
+    ' est susceptible d'envoyer à BottomTitle.
+    '
+    ' L'argument passé est la valeur que
+    ' le programme stocke dans BottomTitle.
+    strTitle = strTitleEntered
+    '
+   ' La sortie suivante s'affichera au bas de la feuille.
+   frmTitle.CurrentY = (frmTitle.Height - 600)
+   '
+   ' Si la feuille est si petite que même une seule
+   ' ligne ne rentre pas, ne rien faire.
+   If frmTitle.CurrentY < 600 Then
+      Exit Property
+   Else
+      ' Affiche sur la feuille la valeur de propriété.
+      Print strTitle
+   End If
+ End Property
+
+
+
+Listing 11.8 : Création d'une variable de référence pointant vers la fenêtre fille
+  Private Sub LoadNewDoc()
+     Static lDocumentCount As Long
+     Dim frmD As frmDocument
+
+     lDocumentCount = lDocumentCount + 1
+     Set frmD = New frmDocument
+     frmD.Caption = "Document " & lDocumentCount
+     frmD.Show
+  End Sub
+
+
+
+ Listing 12.1 : FreeFile() permet d'obtenir un numéro de fichier libre
+  Dim intReadFile As Integer, intWriteFile As Integer
+  ' Gère le fichier d'entrée.
+  intReadFile = FreeFile   ' Obtient le numéro du premier fichier.
+  Open "AccPay.Dat" For Input As intReadFile
+  ' Gère le fichier de sortie.
+  intWriteFile = FreeFile   ' Obtient le numéro du fichier suivant.
+  Open "AccPayOut.Dat" For Output As intWriteFile
+  '
+  ' Ici, le code chargé d'envoyer au fichier
+ ' de sortie le contenu du fichier d'entrée
+ ' (voir plus loin).
+ Close intReadFile
+ Close intWriteFile
+
+
+
+ Listing 12.2 : Ecriture dans un fichier séquentiel avec Print #
+  Private Sub cmdFile_Click()
+    Dim intCtr As Integer   ' Compteur de boucle.
+    Dim intFNum As Integer  ' Numéro de fichier.
+    Dim intMsg As Integer   ' Valeur de renvoi de MsgBox().
+    intFNum = FreeFile
+    ' Vous pouvez changer le chemin.
+    Open "C:\Print.txt" For Output As #intFNum
+
+    ' Décrit la procédure.
+   intMsg = MsgBox("Fichier Print.txt ouvert !")
+
+   For intCtr = 1 To 5
+     Print # intFNum, intCtr    ' Envoie le compteur de boucle.
+     intMsg = MsgBox("Ecriture du chiffre " & intCtr & " dans Print.txt")
+   Next intCtr
+
+   Close # intFNum
+
+   intMsg = MsgBox("Fichier Print.txt fermé !")
+ End Sub
+
+
+
+ Listing 12.3 : Le point-virgule permet d'écrire plusieurs valeurs sur une même ligne
+  Private Sub cmdFile_Click()
+    Dim intCtr As Integer   ' Compteur de boucle.
+    Dim intFNum As Integer  ' Numéro de fichier.
+    Dim intMsg As Integer   ' Valeur de renvoi de MsgBox().
+    intFNum = FreeFile
+    ' Vous pouvez changer le chemin.
+    Open "C:\Print.txt" For Output As #intFNum
+
+    ' Décrit la procédure.
+   intMsg = MsgBox("Fichier Print.txt ouvert")
+
+   For intCtr = 1 To 5
+   Print # intFNum, intCtr;    ' Remarquez le point-virgule.
+   intMsg = MsgBox("Ecriture du chiffre " & intCtr & " dans Print.txt")
+   Next intCtr
+
+ Close # intFNum
+
+   intMsg = MsgBox("Fichier Print.txt fermé")
+ End Sub
+
+
+
+ Listing 12.4 : Ecriture et lecture dans un fichier au sein d'une même procédure
+  Private Sub cmdFileOut_Click ()
+    ' Crée le fichier séquentiel.
+    Dim intCtr As Integer   ' Compteur de boucle.
+    Dim intFNum As Integer  ' Numéro de fichier.
+    intFNum = FreeFile
+
+    Open "Print.txt" For Output As #intFNum
+
+    For intCtr = 1 To 5
+     Print # intFNum, intCtr;    ' Ecrit le compteur de boucle.
+   Next intCtr
+
+   Close # intFNum
+ End Sub
+
+ Private Sub cmdFileIn_Click ()
+   ' Lit le fichier séquentiel.
+   Dim intCtr As Integer   ' Compteur de boucle.
+   Dim intVal As Integer   ' Valeur lue.
+   Dim intFNum As Integer  ' Numéro de fichier.
+   Dim intMsg As Integer   ' Valeur de renvoi de MsgBox().
+   intFNum = FreeFile
+   Open "Print.txt" For Input As #intFNum
+
+   For intCtr = 1 To 5
+     Input # intFNum, intVal
+     ' Affiche les résultats dans la fenêtre Exécution.
+     intMsg = MsgBox("Lecture du chiffre " & intVal & " dans Print.txt")
+   Next intCtr
+
+   Close # intFNum
+   intMsg = MsgBox("Le fichier Print.txt file est maintenant fermé")
+ End Sub
+
+
+
+ Listing 12.5 : Ecriture dans un fichier séquentiel avec Write
+  Private cmdFile_Click ()
+    Dim intCtr As Integer   ' Compteur de boucle.
+    Dim intFNum As Integer  ' Numéro de fichier.
+    intFNum = FreeFile
+
+    Open "c:\Write.txt" For Output As #intFNum
+
+    For intCtr = 1 To 5
+      Write # intFNum, intCtr;    ' Ecrit le compteur de boucle.
+   Next intCtr
+
+   Close # intFNum
+ End Sub
+
+
+
+ Listing 12.6 : L'instruction Type permet de déclarer les nouveaux types de données
+  ' Page module du projet.
+  Type UserType
+    strFName As String
+    strLName As String
+  End Type
+  Public Names As UserType
+
+
+
+ Listing 12.7 : Les chaînes de longueur fixe permettent de spécifier la longueur des enregistrements
+  ' Page module du projet.
+  Type UserType2
+    strFName As String * 8
+    strLName As String * 20
+  End Type
+  Public Names As UserType2
+
+
+
+ Listing 12.8 : Ecriture dans un enregistrement particulier
+  Private Sub cmdCreate_Click()
+    ' Cette procédure crée le fichier.
+    Dim intFile As Integer   ' Numéro de fichier disponible.
+    Dim intCtr As Integer    ' Compteur de boucle.
+
+    intFile = FreeFile
+    Open "c:\Random.Txt" For Random As #intFile Len = 5
+
+    ' La boucle parcourt les numéros et écrit dans le fichier.
+   For intCtr = 1 To 5
+     Put # intFile, intCtr, intCtr  ' Le numéro d'enregistrement correspond aux données.
+   Next intCtr
+
+   Close intFile
+ End Sub
+
+ Private Sub cmdChange_Click()
+   ' Cette procédure modifie l'enregistrement n°3.
+   Dim intFile As Integer   ' Numéro de fichier disponible.
+
+   intFile = FreeFile
+   Open "c:\Random.Txt" For Random As #intFile Len = 5
+
+   ' Ecrit un nouvel enregistrement n°3.
+   Put #intFile, 3, 9   ' Value = 9.
+ Close # intFile
+ End Sub
+
+ Private Sub cmdDisplay_Click()
+   ' Cette procédure affiche le fichier
+   Dim intFile As Integer   ' Numéro de fichier disponible.
+   Dim intVal As Integer    ' Valeur lue.
+   Dim intCtr As Integer    ' Compteur de boucle.
+   Dim intMsg As Integer    ' Valeur de renvoi de MsgBox().
+   intFile = FreeFile
+   Open "c:\Random.Txt" For Random As #intFile Len = 5
+
+   intMsg = MsgBox("Fichier Random.Txt ouvert...")
+
+   ' La boucle parcourt les enregistrements et les affiche.
+   For intCtr = 1 To 5
+     Get # intFile, intCtr, intVal
+     intMsg = MsgBox("Lecture de " & intVal & " dans Random.Txt")
+   Next intCtr
+   Close # intFile
+
+   intMsg = MsgBox("Fichier Random.Txt fermé")
+ End Sub
+
+
+
+ Listing 12.9 : Les types personnalisés peuvent être inclus dans un autre type personnalisé
+  ' Dans la section de déclarations du module de code.
+  Type Address
+    strStreet As String
+    strCity As String
+    strZip As String
+  End Type
+
+  Type UserType3
+    strFName As String * 10
+   strLName As String * 25
+   typAddr As Address  ' Autre type de données.
+ End Type
+
+ Public Names As UserType3  ' Déclare une variable d'application.
+
+
+
+ Listing 12.10 : Le type de données public peut servir dans tous les modules
+  Names.strFName = "Serge"
+  Names.strLName = "Pichot"
+
+  Names.typAddr.strStreet = "Clergeot"
+  Names.typAddr.strCity = "Perrochonville"
+  Names.typAddr.strZip "99000"
+
+  ' Traite les données.
+  lblFName.Caption = "Prénom : " & Names.strFName
+ lblLName.Caption = "Nom : " & Names.strLName
+ lblAddr.Caption = "rue : " & Names.strAddr.strStreet
+ lblCty.Caption = "Ville : " & Names.strAddr.strCity
+ lblZip.Caption = "Code postal : " & Names.strAddr.strZip
+
+
+
+Listing PB6.1 : Chargement du fichier dans un contrôle zone de liste
+  Private Sub cmdColor_Click()
+     ' Pour changer le contrôle d'arrière-plan
+     ' de la zone de liste, l'utilisateur
+     ' se servira de la boîte de dialogue Couleur.
+     comFile.ShowColor
+     lstFile.BackColor = comFile.Color
+  End Sub
+
+  Private Sub Form_Resize()
+   Dim intMsg As Integer   ' Valeur de renvoi de MsgBox().
+   ' Si l'utilisateur redimensionne la feuille,
+   ' ajuste la taille de la zone de liste.
+   '
+   ' Cette procédure événementielle s'exécute
+   ' au premier chargement de la feuille.
+   '
+   ' S'assure que la feuille est assez grande
+   ' pour afficher la zone de liste.
+     If (frmFile.Width < 400) Or (frmFile.Height < 3500) Then
+      ' Masque la zone de liste et
+      ' avertit l'utilisateur.
+       lstFile.Visible = False
+       intMsg = MsgBox("La feuille est trop petite pour afficher le fichier", _ vbCritical)
+     Else
+       ' Active l'affichage de la zone de liste,
+       ' au cas où.
+       lstFile.Visible = True
+       ' Ajuste la taille de la zone de liste.
+       ' Ajuste la position du bouton de commande.
+       lstFile.Width = frmFile.Width - 1440
+       lstFile.Height = frmFile.Height - 2500
+       cmdColor.Left = (frmFile.Width / 2) - 500
+     End If
+ End Sub
+
+ Private Sub mnuFileExit_Click()
+   ' Option de fermeture du programme.
+   End
+ End Sub
+
+ Private Sub mnuFileOpen_Click()
+    Dim strFileLine As String
+    ' Gère le bouton Annuler.
+    On Error GoTo comErrorHandler
+    '
+    ' Affiche la boîte de dialogue Ouvrir.
+    comFile.ShowOpen
+    ' Continue si l'utilisateur clique sur OK,
+    ' passe au gestionnaire d'erreurs s'il clique sur Annuler.
+    '
+    ' Ouvre le fichier sélectionné par l'utilisateur.
+    Open comFile.FileName For Input As #1
+    ' Vide la zone de liste pour faire de la place.
+      lstFile.Clear
+    '
+    ' Lit une ligne complète du fichier.
+    Line Input #1, strFileLine
+    lstFile.AddItem strFileLine
+    '
+    ' Poursuit la lecture et remplit la zone de liste
+    ' jusqu'à ce que la fin du fichier soit atteinte.
+    Do Until (EOF(1))
+      Line Input #1, strFileLine
+      lstFile.AddItem strFileLine
+    Loop
+    ' Ferme le fichier.
+    Close
+ comErrorHandler:
+    ' Ne fait rien si l'utilisateur clique sur Annuler.
+ End Sub
+
+
+
+Listing 13.1 : Le code prend connaissance de chaque imprimante du système
+  Dim prnPrntr As Printer
+  For Each prnPrntr In Printers  ' Boucle dans la collection.
+    frmMyForm.Print prnPrntr.DeviceName
+  Next
+
+
+
+Listing 13.2 : Recherche d'une imprimante couleur sur le système de l'utilisateur
+  Dim prnPrntr As Printer
+  For Each prnPrntr In Printers
+    If prnPrntr.ColorMode = vbPRCMColor Then
+      ' Définit l'imprimante couleur comme imprimante par défaut.
+      Set Printer = prnPrntr
+      Exit For  ' Ne cherche pas plus loin.
+    End If
+  Next   ' Continue la boucle si nécessaire.
+
+
+
+Listing 13.3 : Cette procédure permet d'imprimer les contrôles de la feuille
+  Sub PrintAnywhere (Src As Object, Dest As Object)
+    Dest.PaintPicture Src.Picture, Dest.Width / 2, Dest.Height / 2
+    If TypeOf Dest Is Printer Then
+      Printer.EndDoc
+    End If
+  End Sub
+
+
+
+Listing 13.4 : Print permet également d'envoyer une sortie vers la feuille
+  Private Sub cmdPrint_Click()
+     ' Envoie une sortie vers la feuille
+     ' à l'aide de la méthode Print.
+     Dim intCtr As Integer
+     Dim intCurX As Integer
+     Dim intCurY As Integer
+     '
+     ' Définit les attributs de police.
+       frmPrint.FontItalic = True
+      frmPrint.FontBold = True
+      frmPrint.FontSize = 36
+    '
+    ' Spécifie des mesures en twips.
+      frmPrint.ScaleMode = vbTwips
+    '
+    ' Enregistre les positions X et Y (en twips)
+    ' à chaque itération de la boucle.
+    For intCtr = 1 To 10
+      intCurX = frmPrint.CurrentX
+      intCurY = frmPrint.CurrentY
+      ' Texte noir et blanc en alternance.
+      If (intCtr Mod 2) = 1 Then  ' Compteur de boucle.
+         frmPrint.ForeColor = vbWhite
+      Else
+         frmPrint.ForeColor = vbBlack
+      End If
+      ' Affiche le texte.
+      frmPrint.Print "Visual Basic"
+      '
+      ' Change les positions X et Y.
+      frmPrint.CurrentX = intCurX + 350
+      frmPrint.CurrentY = intCurY + 300
+    Next intCtr
+  End Sub
+
+  Private Sub cmdExit_Click()
+    End
+  End Sub
+
+
+
+Listing 13.5 : Affichage d'un message sur la feuille, puis impression de la feuille
+  Dim blnAutoRedraw As Boolean   ' Contiendra la valeur de AutoRedraw.
+  '
+  frmBlank.Print "Répartition du matériel"
+  frmBlank.Print    ' Blank line
+  frmBlank.Print "Zone"; Tab(20); "Machines"
+  frmBlank.Print "--------"; Tab(20); "--------"
+  frmBlank.Print "Nord"; Tab(20); "Fraises"
+  frmBlank.Print "Sud"; Tab(20); "Presses"
+  frmBlank.Print "Est"; Tab(20); "Broyeurs"
+ frmBlank.Print "Ouest"; Tab(20); "Giboliniseurs"
+ '
+ ' Enregistre la valeur de AutoRedraw.
+ '
+ blnAutoRedraw = frmBlank.AutoRedraw
+ '
+ ' Imprime la feuille.
+ '
+ frmBlank.AutoRedraw = True
+ frmBlank.PrintForm
+ '
+ ' Restaure AutoRedraw.
+ '
+ frmBlank.AutoRedraw = blnAutoRedraw
+
+
+
+Listing 13.6 : On Error Goto permet de gérer les erreurs d'impression
+  Private Sub cmdPrintForm_Click ()
+    Dim intBtnClicked As Integer
+    On Error Goto ErrHandler    ' Définit le gestionnaire d'erreur.
+    frmAccPayable.PrintForm     ' Imprime la feuille.
+    Exit Sub
+  ErrHandler:
+    intBtnClicked = MsgBox("L'imprimante a un problème", vbExclamation, "Erreur d'impression")
+  End Sub
+
+
+
+Listing 13.7 : Affiche une boîte de message avant de lancer l'impression
+  Public Function PrReady() As Boolean
+  ' Laisse à l'utilisateur le temps de se préparer.
+    Dim intIsReady As Integer
+    '
+    ' L'utilisateur répond à la boîte de message
+    ' pour indiquer qu'il est prêt.
+    intIsReady = MsgBox("Veuillez préparer l'imprimante", vbOKCancel, "Impression")
+    '
+    If (intIsReady = vbCancel) Then
+      PrReady = False
+   Else
+      PrReady = True
+   End If
+ End Function
+
+
+
+Listing 13.8 : Interroge la valeur de PrReady() avant d'imprimer
+  Private Sub cmdPrint_Click()
+    ' Imprime seulement si l'utilisateur
+    ' indique qu'il est prêt.
+    If PrReady() Then
+      ' Appelle ReportPrint
+    End If
+  End Sub
+
+
+
+ Listing 14.1 : Initialise les zones de liste et répond aux sélections de l'utilisateur
+  Private Sub Form_Load()
+    ' Initialise la liste déroulante Forme.
+    lstShape.AddItem "0 - Rectangle"
+    lstShape.AddItem "1 - Square"
+    lstShape.AddItem "2 - Oval"
+    lstShape.AddItem "3 - Circle"
+    lstShape.AddItem "4 - Rounded Rectangle"
+    lstShape.AddItem "5 - Rounded Square"
+
+   ' Initialise la liste déroulante Motif.
+   lstPattern.AddItem "0 - Solid"
+   lstPattern.AddItem "1 - Transparent"
+   lstPattern.AddItem "2 - Horizontal Line"
+   lstPattern.AddItem "3 - Vertical Line"
+   lstPattern.AddItem "4 - Upward Diagonal"
+   lstPattern.AddItem "5 - Downward Diagonal"
+   lstPattern.AddItem "6 - Cross"
+   lstPattern.AddItem "7 - Diagonal Cross"
+
+   ' Définit la première valeur de chaque liste comme valeur par défaut.
+   lstShape.ListIndex = 0
+   lstPattern.ListIndex = 0
+
+ End Sub
+
+ Private Sub lstPattern_Click()
+   ' Change le motif en fonction de la sélection.
+   shpSample.FillStyle = lstPattern.ListIndex
+ End Sub
+
+ Private Sub lstShape_Click()
+   ' Change la forme en fonction de la sélection.
+   shpSample.Shape = lstShape.ListIndex
+ End Sub
+
+ Private Sub mnuFileExit_Click()
+   End
+ End Sub
+
+
+
+Listing 14.2 : Dessin d'un motif à l'aide de la méthode Line, option "cadre"
+  Private Sub cmdBoxes_Click()
+    Dim intStartX As Integer
+    Dim intStartY As Integer
+    Dim intLastX As Integer
+    Dim intLastY As Integer
+    Dim intCtr As Integer
+
+    intStartX = 0
+    intStartY = 0
+   intLastX = 1000
+   intLastY = 800
+
+   For intCtr = 1 To 20
+     frmBoxes.Line (intStartX, intStartY)-(intLastX, intLastY), , B
+
+     ' prépare la position des prochains cadres.
+     intStartX = intStartX + 400
+     intStartY = intStartY + 400
+     intLastX = intLastX + 400
+     intLastY = intLastY + 400
+   Next intCtr
+
+ End Sub
+
+
+
+ Listing 14.3 : Gestion du lecteur CD
+  Private Sub Form_Load()
+    ' Ouvre le CD.
+    mmcCD.Command = "Open"
+  End Sub
+
+  Private Sub Form_Unload(Cancel As Integer)
+    ' Réinitialise le contrôle multimédia.
+    mmcCD.Command = "Close"
+  End Sub
+
+ Private Sub mmcCD_StatusUpdate()
+   ' Met à jour le label de pistes.
+   lblTrackNum.Caption = mmcCD.Track
+ End Sub
+
+
+
+ Listing 14.4 : Initialise les labels avec les informations d'état
+  Private Sub mciWAV_StatusUpdate()
+    ' Affiche l'état.
+    If mmcWAV.Mode = mciModeNotOpen Then
+      lblStatusValue(0).Caption = "Non prêt"
+    ElseIf mmcWAV.Mode = mciModeStop Then
+      lblStatusValue(0).Caption = "Arrêt"
+    ElseIf mmcWAV.Mode = mciModePlay Then
+        lblStatusValue(0).Caption = "Lecture"
+    ElseIf mmcWAV.Mode = mciModeRecord Then
+     lblStatusValue(0).Caption = "Enregistrement"
+   ElseIf mmcWAV.Mode = mciModePause Then
+     lblStatusValue(0).Caption = "Pause"
+   ElseIf mmcWAV.Mode = mciModeReady Then
+     lblStatusValue(0).Caption = "Prêt"
+   End If
+   ' Affiche le nom du fichier lu.
+   lblStatusValue(1).Caption = mmcWAV.FileName
+ End Sub
+
+
+
+Listing 14.5 : Associe le lecteur vidéo au contrôle PictureBox
+  Private Sub Form_Load()
+    ' Ouvre le lecteur vidéo.
+    mmcVideo.Command = "Open"
+    ' Connecte le lecteur vidéo au contrôle PictureBox.
+    mmcVideo.hWndDisplay = picVideo.hWnd
+  End Sub
+
+
+
+Listing PB7.1 : Les barres de défilement modifient la taille de l'image
+  Private Sub hscScroll_Change()
+    ' Change la largeur et la position horizontale de l'image.
+    picScroll.Width = hscScroll.Value
+    picScroll.Left = (frmScroll.Width / 2) - (picScroll.Width / 2) - 300
+  End Sub
+
+  Private Sub vscScroll_Change()
+    ' Change la hauteur et la position verticale de l'image.
+    picScroll.Height = vscScroll.Value
+   picScroll.Top = (frmScroll.Height / 2) - (picScroll.Height / 2) -300
+ End Sub
+
+ Private Sub vscScroll_Scroll()
+   ' Répond au curseur de défilement.
+   Call vscScroll_Change
+ End Sub
+
+ Private Sub hscScroll_Scroll()
+   ' Répond au curseur de défilement.
+  Call hscScroll_Change
+ End Sub
+
+
+
+ Listing 15.1 : La boîte de dialogue Connexion permet à l'utilisateur de se connecter à votre application
+ Option Explicit
+ Public LoginSucceeded As Boolean
+
+ Private Sub cmdCancel_Click()
+     ' Affecte la valeur False à la variable globale
+     ' pour indiquer l'échec de la connexion.
+     LoginSucceeded = False
+     Me.Hide
+ End Sub
+
+ Private Sub cmdOK_Click()
+     ' Vérifie si le mot de passe est correct.
+     If txtPassword = "password" Then
+         ' Placer le code ici pour signaler
+         ' à la procédure appelante la réussite de la fonction.
+         ' Définir une variable globale est plus facile.
+         LoginSucceeded = True
+         Me.Hide
+     Else
+         MsgBox "Mot de passe non valide, réessayez !", , "Connexion"
+         txtPassword.SetFocus
+         SendKeys "{Home}+{End}"
+     End If
+ End Sub
+
+
+
+ Listing 16.1 : Enregistrer l'objet contrôle conteneur OLE sur disque
+  Dim intFileNum as Integer
+
+  ' Obtenir le premier numéro de fichier disponible
+  intFileNum = FreeFile
+
+  ' Ouvrir le fichier de sortie
+  Open "TEST.OLE" For Binary As #intFileNum
+
+  ' Enregistrer le fichier
+ oleObj1.SaveToFile intFileNum
+
+ ' Fermer le fichier
+ Close
+
+
+
+ Listing 16.2 : Lire le contenu de l'objet contrôle conteneur OLE enregistré à la précédente exécution
+  Dim intFileNum as Integer
+
+  ' Obtenir le premier numéro de fichier disponible
+  intFileNum = FreeFile
+
+  ' Ouvrir le fichier de sortie
+  Open "TEST.OLE" For Binary As #intFileNum
+
+  ' Lire le fichier dans l'objet
+ oleObj1.ReadFromFile intFileNum
+
+ ' Fermer le fichier
+ Close
+
+
+
+Listing 16.3 : Utilisation de Add pour ajouter des éléments à la nouvelle collection
+  Dim Cities As New Collection
+  Dim intCtr As Integer
+
+  ' Ajoute les éléments
+  Cities.Add "Tulsa"
+  Cities.Add "Miami"
+  Cities.Add "New York"
+  Cities.Add "Seattle"
+
+ ' Montre qu'il y a quatre villes
+ frmMyForm.Print "Il y a "; Cities.Count; " villes :"
+
+ ' Imprime chaque nom de ville
+ For intCtr = 1 To Cities.Count
+   frmMyForm.Print "  "; Cities(intCtr)
+ Next
+
+
+
+ Listing 17.1 : Votre application peut utiliser Excel pour créer une feuille de calcul
+  Private Sub cmdSendToExcel_Click()
+    Dim obExcelApp As Object     ' Objet Appplication
+    Dim obWorkSheet As Object    ' Objet Feuille de calcul
+    Dim blnRunning As Boolean    ' Si Excel était en exécution
+
+    ' Déroutement des erreurs
+    On Error Resume Next
+    '
+    ' Référencer l'application Excel
+   Set obExcelApp = GetObject(, "Excel.Application")
+    If Err.Number <> 0 Then
+       Set obExcelApp = CreateObject("Excel.Application")
+       blnRunning = False        ' Excel n'était pas en exécution
+    Else
+       blnRunning = True
+    End If
+
+    ' Ajouter un nouveau classeur
+    obExcelApp.Workbooks.Add
+
+    ' Référencer la feuille de calcul active
+    Set obWorkSheet = obExcelApp.ActiveSheet
+
+    ' Entrer des valeurs dans les cellules de la feuille active
+    obWorkSheet.Cells(1, 1).Value = "Ventes"
+    obWorkSheet.Cells(1, 2).Value = "Mois"
+    obWorkSheet.Cells(2, 1).Value = 21913.44
+    obWorkSheet.Cells(2, 2).Value = "avril"
+
+   ' Sélectionner la deuxième ligne pour formater
+    obWorkSheet.Rows("2:2").Select
+    obExcelApp.Selection.NumberFormat = "$##,###.##"
+
+    ' Enregistrer le classeur (changez ce nom s'il existe déjà)
+    obExcelApp.Save ("c:\VBCreated.XLS")
+
+    ' Ne pas quitter si Excel était déjà lancé !
+    obExcelApp.ActiveWorkBook.Close False
+
+   If Not (blnRunning) Then ' S'il n'était pas lancé...
+     obExcelApp.Quit        ' alors quitter Excel
+   End If
+
+ End Sub
+
+
+
+ Listing 17.2 : L'assistant a initialisé les valeurs par défaut des nouvelles propriétés
+ 'Valeurs de propriétés par défaut:
+ Const m_def_AutoTSize = 1
+ Const m_def_ULText = 0
+ 'Variables de propriétés:
+ Dim m_AutoTSize As Variant
+ Dim m_ULText As Variant
+
+
+
+ Listing 17.3 : Vous devez définir les valeurs énumérées qui s'afficheront dans la fenêtre Propriétés
+  Public Enum AutoTSizeEnum
+    NA = 1
+    Small = 2
+    Medium = 3
+    Large = 4
+  End Enum
+  Public Enum ULTextEnum
+    AsIs = 0
+    Uppercase = 1
+    Lowercase = 2
+ End Enum
+
+
+
+ Listing 17.4 : Le nouveau contrôle ActiveX sera à la même place et de la même taille que le contrôle TextBox interne
+  Private Sub UserControl_Resize()
+    ' Définit la hauteur et l'échelle à celle du contrôle sous-jacent
+    ' Etend le contrôle aux bonnes largeur et hauteur
+    If UserControl.Height <> txtParent.Height Then
+       txtParent.Height = UserControl.Height
+    End If
+    txtParent.Move 0, 0, UserControl.ScaleWidth
+  End Sub
+
+
+
+Listing 17.5 : Les procédures Get des nouvelles propriétés doivent renvoyer les valeurs énumérées correspondantes
+  Public Property Get AutoTSize() As AutoTSizeEnum
+      AutoTSize = m_AutoTSize
+  End Property
+
+  Public Property Get ULText() As ULTextEnum
+     ULText = m_ULText
+  End Property
+
+
+
+Listing 17.6 : Vous devez compléter les procédures Let des deux propriétés
+  Public Property Let AutoTSize(ByVal New_AutoTSize As AutoTSizeEnum)
+      m_AutoTSize = New_AutoTSize
+      ' Tester l'état de la propriété et en modifier la taille
+      ' en fonction de sa valeur
+      '
+      Select Case New_AutoTSize
+         Case 1: ' Pas de modification nécessaire
+         Case 2: Font.Size = 72 * 0.25 * (Height / 1440)
+         Case 3: Font.Size = 72 * 0.5 * (Height / 1440)
+        Case 4: Font.Size = 72 * 0.75 * (Height / 1440)
+     End Select
+     PropertyChanged "AutoTSize"
+ End Property
+
+ Public Property Let ULText(ByVal New_ULText As ULTextEnum)
+     m_ULText = New_ULText
+     ' Tester l'état du contrôle
+     ' et modifier en fonction la zone de texte
+     ' (ignorer ULText à 0 qui signifie tel quel)
+     If New_ULText = 1 Then
+       Text = UCase(txtParent.Text)
+     ElseIf New_ULText = 2 Then
+       Text = LCase(txtParent.Text)
+     End If
+     PropertyChanged "ULText"
+ End Property
+
+
+
+Listing 17.7 : Ces procédures événementielles permettront de tester le nouveau contrôle ActiveX
+  Private Sub cmdSmall_Click()
+    ' Test de la conversion Small
+    MyFirstCtl.AutoTSize = Small
+  End Sub
+
+  Private Sub cmdMedium_Click()
+    ' Test de la conversion Medium
+    MyFirstCtl.AutoTSize = Medium
+  End Sub
+
+ Private Sub cmdLarge_Click()
+   ' Test de la conversion Large
+   MyFirstCtl.AutoTSize = Large
+ End Sub
+
+ Private Sub cmdUpper_Click()
+   ' Test de la conversion en majuscules
+   MyFirstCtl.ULText = Uppercase
+ End Sub
+
+ Private Sub cmdLower_Click()
+   ' Test de la conversion en minuscules
+   MyFirstCtl.ULText = Lowercase
+ End Sub
+
+
+
+ Listing PB8.1 : Le code de l'animation peut être simple
+  Private Sub cmdAni_Click()
+    ' Utilise le bouton pour commander l'animation
+    If cmdAni.Caption = "&Animer" Then
+      cmdAni.Caption = "&Stop"
+      tmrAni.Enabled = True
+    Else
+      cmdAni.Caption = "&Animer"
+      tmrAni.Enabled = False
+    End If
+ End Sub
+
+ Private Sub mnuHelpAbout_Click()
+     mmcEnv.Command = "Open"
+     mmcEnv.Command = "Play"
+     frmAbout.Show
+ End Sub
+
+ Private Sub tmrAni_Timer()
+   ' Determine le bon emplacement
+   ' d'image à afficher
+   '
+   ' La variable suivante part de zéro
+   ' et conserve sa valeur à chaque exécution
+   ' de la procédure.
+   Static intCounter As Integer
+
+   Select Case intCounter
+     Case 0:
+       picAni1.Picture = picAni2(1).Picture
+       picAni2(2).Visible = True
+       picAni2(2).Left = 3840
+       picAni2(2).Top = 1220
+       intCounter = 1
+     Case 1:
+       picAni1.Picture = picAni2(1).Picture
+       picAni2(2).Visible = True
+       picAni2(2).Left = 4040
+       picAni2(2).Top = 1120
+       intCounter = 2
+     Case 2:
+       picAni1.Picture = picAni2(1).Picture
+       picAni2(2).Visible = True
+       picAni2(2).Left = 4240
+       picAni2(2).Top = 1220
+       intCounter = 3
+     Case 3:
+       picAni1.Picture = picAni2(0).Picture
+       picAni2(2).Left = 4440
+       picAni2(2).Top = 1320
+       intCounter = 4
+     Case 4:
+       ' Arrêter l'animation
+       picAni1.Visible = True
+       intCounter = 0
+       picAni2(2).Visible = False
+     End Select
+ End Sub
+
+
+
+ Listing PB9.1 : Vous pouvez utiliser des méthodes d'écriture des données dans la table par programmation
+  Private Sub cmdSave_Click()
+    ' Assigne toutes les TextBox aux champs.
+    ' N'assigne que les données non nulles
+    ' (les lignes longues sont découpées)
+    adoBooks.Recordset!Title = _
+      IIf(txtTitle = "", "N/A", txtTitle)
+    adoBooks.Recordset![Year Published] = _
+      IIf(txtPub = "", "N/A", txtPub)
+    adoBooks.Recordset!ISBN = _
+     IIf(txtISBN = "", "N/A", txtISBN)
+   adoBooks.Recordset!PubID = _
+     IIf(txtPubID = "", "N/A", txtPubID)
+   adoBooks.Recordset!Subject = _
+     IIf(txtSubject = "", "N/A", txtSubject)
+
+   ' Effectue la mise à jour réelle du recordset
+   adoBooks.Recordset.Update
+
+ End Sub
+
+
+
+ Listing 19.1 : Quelques lignes de code HTML peuvent révéler comment fonctionne le code de formatage des pages Web
+<HTML>
+<HEAD>
+<TITLE>MSN.COM</TITLE>
+<meta http-equiv="Content-Type" content="text/html;
+  charset=iso-8859-1">
+<META http-equiv="PICS-Label" content=
+ '(PICS-1.0 "http://www.rsac.org/ratingsv01.html"
+ l comment "RSACi North America Server" by
+ "Microsoft Network"'>
+</HEAD>
+<FRAMESET rows="20,*" frameborder="0"
+ framespacing="0" border="0">
+<FRAME src="/pilot.htm" name="pilot"
+ NORESIZE scrolling="no" marginwidth="0"
+ marginheight="0" frameborder="0" framespacing="0">
+</FRAMESET>
+</html>
+
+
+
+ Listing 19.2 : Un exemple de VBScript qui montre les ressemblances avec Visual Basic
+<SCRIPT Language="VBScript">
+        Call PrintWelcome
+        Call ModMessage
+
+Sub PrintWelcome
+               If Date() = "2/2/98" Then
+                      document.write ". . . .Anniversaire de Cathy !"
+               End If
+               If Date() = "2/5/98" Then
+                      document.write ". . . .Anniversaire d'Eric !"
+               End If
+               If Date() = "5/17/98" Then
+                      document.write ". . . .Anniversaire de Michael !"
+               End If
+               If Date() = "7/25/98" Then
+                      document.write ". . . .Mon Anniversaire !"
+               End If
+        End Sub
+Sub ModMessage
+        Document.Write "<BR>Dernière modification de cette page : "+Document.lastModified +"</FONT><BR>"
+End Sub
+</SCRIPT>
+
+
+
+ Listing 20.1 : Vous pouvez afficher une aide contextuelle
+cdbHelp.HelpFile = "MDINote.hlp"  ' Pointe sur le fichier d'aide
+'
+' Vous pouvez proposer une aide spécifique sur un sujet
+' particulier en pointant sur le numéro de la section
+' [MAP] du fichier .HPJ (vos ID de contexte textuelles)
+cdbHelp.HelpContext = 3  ' Pointe sur la section
+cdbHelp.HelpCommand = cdlHelpContext  ' Demande contextuelle
+cdbHelp.ShowHelp      ' Affiche l'aide contextuelle
+
+
+
+ Listing 21.1 : Vous pouvez analyser les procédures individuelles à un point d'arrêt
+  Private Sub ChangeSignal()
+      ' Check to see what color the light is, and then change
+      ' it to the next color. The order is green, yellow,
+      ' and then red.
+      If imgGreen.Visible = True Then
+          imgGreen.Visible = False
+          imgYellow.Visible = True
+      ElseIf imgYellow.Visible = True Then
+          imgYellow.Visible = False
+         imgRed.Visible = True
+    Else
+         imgRed.Visible = False
+         imgGreen.Visible = True
+     End If
+ End Sub
+
+
+
+ Listing 22.1 : Les boucles imbriquées permettent de parcourir rapidement les tables
+  For intRow = 1 To 2
+    For intCol = 1 To 3
+      MsgBox("Ligne : " & intRow & ", Colonne : " & intCol)
+    Next intCol
+  Next intRow
+
+
+
+ Listing 22.2 : Les boucles imbriquées fournissent des indices pour parcourir tout le tableau
+  For intRow = 1 To 2
+    For intCol = 1 To 3
+      Form1.Print "Row: " & intRow & ", Col: " & intCol
+    Next intCol
+    Form1.Print
+  Next intRow
+
+
+
+ Listing 22.3 : Les éléments d'inventaire apparaissent souvent dans une table
+  Private Sub disks ()
+  ' Assigne et imprime les prix des disquettes
+    Dim curDisks(1 To 2, 1 To 4) As Currency
+    Dim intRow As Integer, intCol As Integer
+    ' Assigne le prix de chaque élément
+    curDisks(1, 1) = 2.30    ' Ligne 1, colonne 1
+    curDisks(1, 2) = 2.75    ' Ligne 1, colonne 2
+    curDisks(1, 3) = 3.20    ' Ligne 1, colonne 3
+    curDisks(1, 4) = 3.50    ' Ligne 1, colonne 4
+   curDisks(2, 1) = 1.75    ' Ligne 2, colonne 1
+   curDisks(2, 2) = 2.10    ' Ligne 2, colonne 2
+   curDisks(2, 3) = 2.60    ' Ligne 2, colonne 3
+   curDisks(2, 4) = 2.95    ' Ligne 2, colonne 4
+   ' Imprime les prix sous forme de table
+   Form1.Print
+   Form1.Print Tab(12); "Simple face,    Double face,      ";
+   Form1.Print "Simple face,    Double face"
+   Form1.Print Tab(12); "faible densité   faible densité    ";
+   Form1.Print "haute densité   haute densité"
+   For intRow = 1 To 2
+     If (intRow = 1) Then
+        Form1.Print "3 pouces 1/2 "; Tab(15);
+     Else
+        Form1.Print "5 pouces 1/4"; Tab(15);
+     End If
+     For intCol = 1 To 4
+       Form1.Print curDisks(intRow, intCol); Spc(8);
+
+     Next intCol
+     Form1.Print   ' Déplace le curseur à la ligne suivante
+   Next intRow
+ End Sub
+
+
+
+Listing 22.4 : La procédure Form_Load() initialise plusieurs valeurs à l'aide de sous-routines
+  Private Sub Form_Load()
+   ' Définit la justification des cellules de la grille
+   ' et assigne les titres des cellules à la ligne fixe et
+   ' les en-têtes de colonnes. Initialise en outre la table
+   ' des valeurs et l'envoie au contrôle grille.
+   '
+   Call InitScrolls    ' Initialise les barres de défilement
+   Call CenterCells    ' Centre les cellules
+   Call SizeCells      ' Spécifie la largeur des cellules
+   Call Titles          ' Place les titres de colonne et de ligne
+   Call FillCells       ' Remplit les cellules
+ End Sub
+
+
+
+Listing 22.5 : Les trois premières procédures appelées par Form_Load() sont utilisées pour configurer la grille
+  Private Sub InitScrolls()
+   ' Configure les deux barres de défilement
+   ' à leur valeur maximale. Même si ces valeurs sont
+   ' configurées dans la fenêtre Propriétés, cette procé-
+   ' dure permet de modifier plus facilement les valeurs
+   ' maximales des barres de défilement s'il en est besoin.
+   '
+   hscIncrease.Value = 15
+   hscDecrease.Value = 15
+ End Sub
+
+ Private Sub CenterCells()
+   ' Configure la justification des cellules
+   ' en alignement centré. Assurez-vous de centrer
+   ' les en-têtes de ligne et de colonne.
+   '
+   Dim Column As Integer
+   '
+   ' Commence par centrer les cellules d'en-têtes
+   For Column = 0 To 7
+     grdSales.Col = Column   ' configure la colonne courante
+     ' Centre les cellules fixes de cette colonne
+     grdSales.ColAlignment(Column) = flexAlignCenterCenter
+   Next Column
+ End Sub
+
+ Private Sub SizeCells()
+   ' Specifie la largeur de chaque cellule
+   Dim Column As Integer
+   For Column = 0 To 7
+     grdSales.ColWidth(Column) = 1100  ' En twips
+   Next Column
+ End Sub
+
+
+
+ Listing 22.6 : Vous devez initialiser les en-têtes de la grille et les cellules de données
+  Private Sub Titles()
+   ' Remplissage des titres de colonnes
+   ' Habituellement, ces données proviennent d'une table de base de données
+   grdSales.Row = 0  ' Tous les noms des vendeurs sont à la ligne 0
+   grdSales.Col = 1
+   grdSales.Text = "Smith"
+   grdSales.Col = 2
+   grdSales.Text = "Johnson"
+   grdSales.Col = 3
+   grdSales.Text = "Lake"
+   grdSales.Col = 4
+   grdSales.Text = "West"
+   grdSales.Col = 5
+   grdSales.Text = "Gates"
+   grdSales.Col = 6
+   grdSales.Text = "Kirk"
+   grdSales.Col = 7
+   grdSales.Text = "Taylor"
+   ' Maintenant, remplir les produits
+   grdSales.Col = 0  ' Tous les noms de produits sont à la colonne 0
+   grdSales.Row = 1
+   grdSales.Text = "Gadget #1"
+   grdSales.Row = 2
+   grdSales.Text = "Gadget #2"
+   grdSales.Row = 3
+   grdSales.Text = "Tube long"
+   grdSales.Row = 4
+   grdSales.Text = "Tube court"
+   grdSales.Row = 5
+   grdSales.Text = "Règle métallique"
+   grdSales.Row = 5
+   grdSales.Text = "Règle en bois"
+   grdSales.Row = 6
+   grdSales.Text = "Règle en plastique"
+   grdSales.Row = 7
+   grdSales.Text = "Règle en caoutchouc"
+   grdSales.Row = 8
+   grdSales.Text = "Panier"
+   grdSales.Row = 9
+   grdSales.Text = "Boulon 3C"
+   grdSales.Row = 10
+   grdSales.Text = "Boulon 5A"
+   grdSales.Row = 11
+   grdSales.Text = "Ecrou 3C"
+   grdSales.Row = 12
+   grdSales.Text = "Ecrou 5A"
+   grdSales.Row = 13
+   grdSales.Text = "Clou #12"
+   grdSales.Row = 14
+   grdSales.Text = "Clou #15"
+   grdSales.Row = 15
+   grdSales.Text = "Clou #16"
+   grdSales.Row = 16
+   grdSales.Text = "Œillet #4"
+   grdSales.Row = 17
+   grdSales.Text = "Œillet #6"
+   grdSales.Row = 18
+   grdSales.Text = "Œillet #8"
+   grdSales.Row = 19
+   grdSales.Text = "Joint"
+ End Sub
+
+ Private Sub FillCells()
+   ' Remplit les 160 cellules avec des valeurs
+   ' calculées à partir des valeurs de ligne et de colonne
+   ' Même si ces données n'ont aucun sens, elles permettent
+   ' d'insérer rapidement des données dans le tableau et la grille.
+   '
+   ' Ces données proviennent normalement d'une base de données.
+   '
+   ' Déclarer un tableau de 20 lignes et 7 colonnes qui
+   ' correspond à la grille sur la feuille. Les indices
+   ' sont en base zéro, car la grille les utilise aussi.
+   Dim curData(19, 7) As Currency
+   Dim Row As Integer
+   Dim Column As Integer
+   '
+   ' Remplir la table de données
+   For Row = 1 To 19
+     For Column = 1 To 7
+       curData(Row, Column) = ((Row + Column) / Row)
+     Next Column
+   Next Row
+   ' Copier le contenu de la table dans la grille
+   For Row = 1 To 19
+     For Column = 1 To 7
+       grdSales.Row = Row
+       grdSales.Col = Column
+       grdSales.Text = Format(curData(Row, Column), "###.00")
+     Next Column
+   Next Row
+ End Sub
+
+
+
+ Listing 22.7 : Les commissions sont affectées en fonction du contrôle choisi par l'utilisateur
+ Private Sub hscDecrease_Change()
+   ' Modifie le titre du bouton de commande
+   cmdDecrease.Caption = "&Diminuer de " & Str(hscDecrease.Value) & " %"
+ End Sub
+
+ Private Sub hscIncrease_Change()
+   ' Modifie le titre du bouton de commande
+   cmdIncrease.Caption = "&Augmenter de " & Str(hscIncrease.Value) & " %"
+ End Sub
+
+ Private Sub cmdIncrease_Click()
+   ' Augmente les valeurs des cellules sélectionnées
+   ' en augmentant le pourcentage de la barre de défilement
+   Dim SelRows As Integer
+   Dim SelCols As Integer
+   Dim SelStartRow As Integer
+   Dim SelStartCol As Integer
+   Dim RowBeg As Integer
+   Dim ColBeg As Integer
+
+   If (grdSales.HighLight) Then  ' Si sélectionné...
+     ' Enregistrer les valeurs de cellules sélectionnées
+     SelStartRow = grdSales.RowSel
+     SelStartCol = grdSales.ColSel
+     RowBeg = grdSales.Row
+     ColBeg = grdSales.Col
+     ' Parcourir toutes les cellules sélectionnées
+     For SelRows = RowBeg To SelStartRow
+       For SelCols = ColBeg To SelStartCol
+         grdSales.Row = SelRows
+         grdSales.Col = SelCols
+         ' Augmenter la cellule du montant de la barre de défilement
+       grdSales.Text = grdSales.Text + (hscIncrease.Value / 100 * grdSales.Text)
+       grdSales.Text = Format(grdSales.Text, "####.00")
+      Next SelCols
+    Next SelRows
+    ' Restaurer la sélection en surbrillance
+    grdSales.Row = RowBeg
+    grdSales.Col = ColBeg
+    grdSales.RowSel = SelStartRow
+    grdSales.ColSel = SelStartCol
+   End If
+ End Sub
+
+ Private Sub cmdDecrease_Click()
+   ' Diminue les valeurs des cellules sélectionnées
+   ' en diminuant le pourcentage de la barre de défilement
+   Dim SelRows As Integer
+   Dim SelCols As Integer
+   Dim SelStartRow As Integer
+   Dim SelStartCol As Integer
+   Dim RowBeg As Integer
+   Dim ColBeg As Integer
+
+   If (grdSales.HighLight) Then  ' Si sélectionné...
+     ' Enregistrer les valeurs de cellules sélectionnées
+     SelStartRow = grdSales.RowSel
+     SelStartCol = grdSales.ColSel
+     RowBeg = grdSales.Row
+     ColBeg = grdSales.Col
+     ' Parcourir toutes les cellules sélectionnées
+     For SelRows = RowBeg To SelStartRow
+        For SelCols = ColBeg To SelStartCol
+          grdSales.Row = SelRows
+          grdSales.Col = SelCols
+          ' Diminuer la cellule du montant de la barre de défilement
+          grdSales.Text = grdSales.Text - (hscDecrease.Value / 100 * grdSales.Text)
+          grdSales.Text = Format(grdSales.Text, "####.00")
+        Next SelCols
+     Next SelRows
+     ' Restaurer la sélection en surbrillance
+     grdSales.Row = RowBeg
+     grdSales.Col = ColBeg
+     grdSales.RowSel = SelStartRow
+     grdSales.ColSel = SelStartCol
+   End If
+ End Sub
+
+ Private Sub cmdExit_Click()
+   ' Terminer l'application
+   End
+ End Sub
+
+
+
+ Listing 23.1 : Vous pouvez utiliser l'API Windows pour déclencher le haut-parleur
+ Private Declare Function MessageBeep Lib "user32" (ByVal wType As Long) As Long
+
+ Private Sub cmdBeep_Click()
+   Dim Beeper As Variant
+   Beeper = MessageBeep(1)
+ End Sub
+
+
+
+ Listing 23.2 : Utilisation de l'API Windows pour en savoir plus sur un disque dans votre application
+  Private Declare Function GetDriveType Lib "kernel32.dll" Alias "GetDriveTypeA" (ByVal nDrive As String) As Long
+
+  Private Sub cmdDrive_Click()
+    Dim lngDriveType As Long
+
+    ' Transmettre le nom du disque qui vous intéresse
+    ' à la fonction GetDriveType()
+    lngType = GetDriveType("c:\")
+    '
+   ' Utiliser la valeur renvoyée pour déterminer
+   ' le type de disque testé
+   Select Case lngType
+     Case 2
+       txtDrive.Text = "Disque amovible"
+     Case 3
+       txtDrive.Text = "Disque dur fixe"
+     Case 4
+       txtDrive.Text = "Disque distant (réseau)"
+     Case Else
+       txtDrive.Text = "Inconnu"
+   End Select
+ End Sub
+
+
+
+ Listing 23.3 : Les fonctions de l'API qui recherchent les dossiers demandent un peu plus de travail que les routines API déjà vues
+  Private Declare Function GetWindowsDirectory Lib "kernel32" Alias "GetWindowsDirectoryA" (ByVal lpBuffer As String, ByVal nSize As Long) As Long
+  Private Declare Function GetSystemDirectory Lib "kernel32" Alias "GetSystemDirectoryA" (ByVal lpBuffer As String, ByVal nSize As Long) As Long
+  Private Declare Function GetTempPath Lib "kernel32" Alias "GetTempPathA" (ByVal nBufferLength As Long, ByVal lpBuffer As String) As Long
+  Private Sub Form_Load()
+    ' Initialise les labels des dossiers système au chargement
+    ' Déclare une chaîne fixe assez longue pour contenir les informations
+    Dim strFolder As String * 255
+    Dim intLength As Integer
+
+    '
+    ' Obtient les informations sur le répertoire Windows
+    intLength = GetWindowsDirectory(strFolder, 255)
+    lblWinD.Caption = Left(strFolder, intLength)
+    '
+    ' Obtient les informations sur le répertoire System
+    intLength = GetSystemDirectory(strFolder, 255)
+    lblWinS.Caption = Left(strFolder, intLength)
+    '
+    ' Obtient les informations sur le répertoire Temp
+    intLength = GetTempPath(255, strFolder)
+    lblWinT.Caption = Left(strFolder, intLength)
+  End Sub
+
+  Private Sub cmdExit_Click()
+    End
+  End Sub
+Annexe A
+Listing 8.1 réécrit :
+  Private Sub GetTotal()
+  ' Cette procédure additionne les valeurs d'un
+  ' formulaire, puis envoie le total et le pourcentage
+  ' d'abattement à la procédure qui calcule la taxe.
+     Dim curTotal As Currency
+     Dim sngDisc As Single   ' Special tax discount
+     '
+     ' Calculer le total d'après le formulaire.
+     curTotal = txtSale1.Text + txtSale2.Text + txtSale3.txt
+    '
+    ' Envoyer le total à la procédure de taxation.
+    intMsg = MsgBox("The sales tax is " & SalesTax(curTotal, _sngDisc))
+End Sub
+
+ Public Function SalesTax(curTotal As Currency, sngRateDisc As _Single) As Currency
+   ' Envoyer le total à la procédure de taxation.
+   Dim curSalesTax As Currency
+   '
+   ' Dans le chapitre, ce code était une sous-routine.
+   ' Calcul de la taxe de vente
+   ' à 3,5 % du total.
+   curSalesTax = (curTotal * .03) + (curTotal * .005)
+   '
+   ' Déduction du pourcentage d'abattement.
+   curSalesTax = curSalesTax - (sngRateDisc * curTotal)
+   '
+   ' Définit la valeur renvoyée.
+   SalesTax = curSalesTax
+   '
+   ' Une fois terminée, la procédure revient à
+   ' la procédure appelante.
+ End Function
+
+Listing 9.2 modifié :
+   ' Présuppose que CancelError vaut True.
+   On Error Goto dbErrHandler
+   ' Définit les valeurs Flags.
+   CdbFont.Flags = cdlCFBoth Or cdlCFEffects
+   CdbFont.ShowFont  ' Affiche la boîte de dialogue Police.
+  ' Définit les propriétés du label qui
+  ' reflètera les choix de l'utilisateur.
+   LblMessage.Font.Name = CdbFont.FontName
+   LblMessage.Font.Size = CdbFont.FontSize
+  LblMessage.Font.Bold = CdbFont.FontBold
+  LblMessage.Font.Italic = CdbFont.FontItalic
+  LblMessage.Font.Underline = CdbFont.FontUnderline
+  LblMessage.FontStrikethru = CdbFont.FontStrikethru
+  LblMessage.ForeColor = CdbFont.Color
+  Exit Sub
+
+ dbErrHandler:
+  ' L'utilisateur a cliqué sur Annuler.
+  Exit Sub  ' Pas de modification.
+La procédure :
+  Private Sub mnuFileOpen_Click ()
+  ' Présuppose que CancelError vaut True.
+    On Error Goto dbErrHandler
+    ' Determine les types de fichiers
+    ' qui apparaîtront.
+    cdbFile.Filter = "Texte (*.txt) | *.txt"
+    ' Spécifie le filtre par défaut.
+    cdbFile.FilterIndex = 1
+    cdbFile.DialogTitle = "Open"
+   ' Affiche la boîte de dialogue Ouvrir.
+   cdbFile.ShowOpen
+
+   '**********************************
+   ' Ici, placez ou appelez une      *
+   ' procédure qui ouvre le fichier  *
+   ' sélectionné par l'utilisateur.  *
+   '**********************************
+   Exit Sub
+
+ dbErrHandler:
+   ' L'utilisateur a cliqué sur Annuler.
+   Exit Sub  ' Ne pas ouvrir de fichier.
+ End Sub
+
+
+Listing 13.2 modifié :
+  Public Function IsColor() As Boolean
+    Dim blnIsColor As Boolean
+    Dim prnPrntr As Printer
+    '
+    ' Présuppose qu'aucune imprimante couleur n'a été encore trouvée.
+    blnIsColor = False
+    '
+    ' Parcourt les imprimantes.
+    For Each prnPrntr In Printers
+     If prnPrntr.ColorMode = vbPRCMColor Then
+       ' Définit l'imprimante couleur comme imprimante par défaut.
+       Set Printer = prnPrntr
+       blnIsColor = True
+       Exit For  ' Laisse tomber.
+     End If
+   Next   ' Parcourt les imprimantes si nécessaire.
+   '
+   ' blnIsColor reste False si aucune imprimante couleur
+   ' n'est trouvée, et devient True dans le cas contraire.
+   ' Définit en conséquence la valeur renvoyée par la fonction.
+   IsColor = blnIsColor
+ End Function
+
+
+
+

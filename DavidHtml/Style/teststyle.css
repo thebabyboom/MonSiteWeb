@@ -1,0 +1,111 @@
+body {
+font-family:Georgia, "Times New Roman", Times, serif;
+font-size:75%;
+text-align:center;
+scrollbar-arrow-color:#000059; 
+scrollbar-track-color:#c1cae3; 
+scrollbar-shadow-color:#000059; 
+scrollbar-face-color:#c1cae3; 
+scrollbar-highlight-color:#c1cae3; 
+scrollbar-darkshadow-color:#000059; 
+scrollbar-3dlight-color:#c1cae3;
+} 
+
+#page{
+	width: 762px;
+	margin-right:auto;
+	margin-left:auto;
+	margin-top:10px;
+	padding:0px;
+	text-align:left;
+	}
+
+#header {
+	width:760px;
+	background-image: url('../Images/titre_fond.jpg');
+	background-repeat:repeat-x;
+	border: 1px solid #000059;
+	}
+	
+#blocmenu {
+	background-image: url('../Images/content.jpg');
+	background-repeat:repeat-x;
+	border: 1px solid #000059;
+	margin-top:5px;
+	width: 150px;
+	height: 400px; /* cette ligne indique la hauteur du bloc menu */
+	float:left;
+	}
+.bloctitre {
+	border-bottom: 1px solid #000059;
+	background-image: url('../Images/menu_titre.jpg');
+	background-repeat:repeat-x;
+	height: 15px;
+	font-style:italic;
+	font-family:Georgia, serif;
+	text-align: left;
+	font-weight: bold;
+	padding-left:10px;
+	font-size:12px;
+	}
+
+#blocmenu ul {
+list-style-type:none;
+margin:0px;
+padding:0px 0px 0px 3px;
+display:block;
+}
+#blocmenu li{
+margin:0px 0px 0px 0px;
+}
+.titre {
+font-weight:bold;
+font-style:italic;
+text-decoration:underline;
+width:145px;
+height:20px;
+}
+.menu a {
+padding:0px 0px 0px 6px;
+width:145px;
+height:20px;
+text-decoration: none;
+}
+.menu a:hover{
+text-decoration:none;
+background-image:url(../Images/menu.png);
+background-repeat:no-repeat;
+}
+
+.texte {
+text-align: left;
+height:380px;
+overflow:auto;
+padding-left:10px;
+padding-right:10px;
+}
+	
+#content {
+	background-image: url('../Images/content.jpg');
+	background-repeat:repeat-x;
+	border: 1px solid #000059;
+	margin-top: 5px;
+	width:600px;
+	height:400px;
+	float:right;
+	}
+
+.centre {
+text-align: center;
+}
+a {
+	color: #000000;
+	text-decoration: none;
+	}
+a:hover {
+	color: #000000;
+	text-decoration: underline;
+	}
+#news  p{
+text-align:left;
+}
