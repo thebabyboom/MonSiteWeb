@@ -33,15 +33,12 @@
 	  <li><a href="peripherique.html">Peripherique</a></li>
 	  <li><a href="os.html">Systeme d'exploitation</a></li>
 	  <li><a href="divers.html">Divers</a></li>
-	 <li class="titre">Forum</li>
-	  <li><a href="http://www.hesit.be/~forum" target="_blank">Forum</a></li>
 	 <li class="titre">Liens</li>
 	  <li><a href="ecole.html">Ecole</a></li>
 	  <li></li><a href="link.html">Friends</a></li>
 	 <li class="titre">Perso</li>
 	  <li><a href="contact.html">Contact</a></li>
 	  <li><a href="cv.html">Curriculum Vit&aelig;</a></li>
-	  <li><a href="motivation.html">Motivation</a></li>
 	</ul>
    </div>
   <!--** Fin du menu **-->
@@ -49,12 +46,12 @@
 
   <!--******************************************************************************-->
   <!-- ** Contenu de la page **-->
-  	<div id="content"> 
+  	<div id="content">
 		<div class="bloctitre">Listefilms</div>
-		
+
 		<div class="texte">
 <?php
-// Connexion à MySQL
+// Connexion ï¿½ MySQL
 $link=mysql_connect("imysql04", "i3989895","asvqwu08gb01n4gf");
 mysql_select_db("i3989895");
 
@@ -89,7 +86,7 @@ echo("
 ");
 }
 ?>
-	
+
 </div>
 <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
 </script>
