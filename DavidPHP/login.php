@@ -22,7 +22,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 **/
 include 'partials/header.php';
 ?>
-<form action="" method="post">
+<form action="#" method="post">
   <div class="form-group">
     <label for="username">Nom d'utilisateur</label>
     <?= input('username'); ?>
