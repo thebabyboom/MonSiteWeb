@@ -33,5 +33,7 @@ include 'partials/header.php';
   </div>
   <button type="submit" class="btn btn-default">Se Connecter</button>
 </form>
-<?php include 'lib/debug.php' ?>
-<?php include 'partials/footer.php'; ?>
+<?php
+include 'lib/debug.php';
+include 'partials/footer.php';
+?>
