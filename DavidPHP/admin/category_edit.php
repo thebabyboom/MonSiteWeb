@@ -1,14 +1,19 @@
 <?php
 include '../lib/includes.php';
 
-if(isset($_POST['name'])&& isset($_POST['slug'])){
+if(isset($_POST['name']) && isset($_POST['slug'])){
 	checkCsrf();
 	$slug = $_POST['slug'];
 	if(preg_match('/^[a-z\-0-9]+$/', $slug)){
 		$name = $db->quote($_POST['name']);
 		$slug = $db->quote($_POST['slug']);
-		$db->query("INSERT INTO categories SET name=$name, slug=$slug");
-		setFlash('La catégorie a bien été ajoutée');
+		if(isset($_GET['id'])){
+			$id = $db->quote($_GET['id']);
+			$db->query("UPDATE categories SET name=$name, slug=$slug where id=$id");
+		}else {
+			$db->query("INSERT INTO categories SET name=$name, slug=$slug");
+			setFlash('La catégorie a bien été ajoutée');
+		}
 		header('Location:category.php');
 		die();
 	}else{
@@ -16,6 +21,16 @@ if(isset($_POST['name'])&& isset($_POST['slug'])){
 	}
 }
 
+if(isset($_GET['id'])){
+	$id = $db->quote($_GET['id']);
+	$select = $db->query("SELECT * FROM categories WHERE id=$id");
+	if($select->rowcount() == 0){
+		setFlash('Il n\'y a pas de catégorie avec cet id','danger');
+		header('Location:category.php');
+		die();
+	}
+	$_POST = $select->fetch();
+}
 
 include '../partials/header_admin.php';
 
