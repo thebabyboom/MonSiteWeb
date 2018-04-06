@@ -10,18 +10,18 @@
  </head>
 
  <body>
-   <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
      <div class="container">
        <div class="navbar-header">
-         <a class="navbar-brand" href="#">Mon Portfolio en PHP</a>
+         <a class="navbar-brand" href="index.php">Mon Portfolio en PHP</a>
        </div>
        <ul class="nav navbar-nav">
          <li>
-          <a href="category.php">Catégories</a>
+          <a class='nav-link' href="category.php">Catégories</a>
          </li>
        </ul>
      </div>
-   </div>
+ </nav>
   <div class="container">
 
     <p>&nbsp;</p>
