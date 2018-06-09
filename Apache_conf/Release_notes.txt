@@ -1,0 +1,20 @@
+#Installation de LAMP
+sudo apt install apache2 php mysql-server libapache2-mod-php php-mysql
+sudo apt install php-curl php-gd php-intl php-json php-mbstring php-mcrypt php-xml php-zip
+sudo apt-get install phpmyadmin
+
+#Installation de GIT
+sudo apt install git
+
+##Config de GIT
+git config --global user.email "thebabyboom@gmail.com"
+git config --global user.name "David"
+
+##Config apache2
+cd /var/www/
+sudo ln -s /home/baby/Documents/David/DavidPHP .
+
+###Copier les fichiers nécessaires aux endroits nécessaires
+
+##Activation du site
+sudo a2ensite 001-davidphp.conf
