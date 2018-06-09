@@ -50,7 +50,7 @@
 	],
 	"find":
 	{
-		"height": 25.0
+		"height": 26.9192422732
 	},
 	"find_in_files":
 	{
@@ -92,7 +92,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 25.0
+		"height": 26.9192422732
 	},
 	"input":
 	{
@@ -129,7 +129,7 @@
 	"project": "untitled.sublime-project",
 	"replace":
 	{
-		"height": 46.0
+		"height": 49.850448654
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -164,7 +164,7 @@
 	{
 	},
 	"show_minimap": true,
-	"show_open_files": false,
+	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 164.0,

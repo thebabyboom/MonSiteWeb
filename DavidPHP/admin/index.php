@@ -6,6 +6,6 @@
 
 
  <?php
- include '../lib/debug.php';
+ 
  include '../partials/footer.php';
   ?>

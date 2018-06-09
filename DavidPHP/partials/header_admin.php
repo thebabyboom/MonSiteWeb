@@ -7,6 +7,8 @@
 	<meta name="keywords" content="babyboom, informatique, programmation, hesit" />
   <title>Mon administration</title>
   <link href="<?= WEBROOT; ?>css/mycss.css" rel="stylesheet"  />
+  <script type="text/javascript" src="<?= WEBROOT; ?>js/jquery.js"></script>
+  <?php if(isset($script)); ?> <?= $script; ?> <?php endif; ?>
  </head>
 
  <body>
@@ -18,6 +20,9 @@
        <ul class="nav navbar-nav">
          <li>
           <a class='nav-link' href="category.php">Catégories</a>
+         </li>
+         <li>
+          <a class='nav-link' href="work.php">Réalisations</a>
          </li>
        </ul>
      </div>
