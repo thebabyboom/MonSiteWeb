@@ -10,11 +10,43 @@ sudo apt install git
 git config --global user.email "thebabyboom@gmail.com"
 git config --global user.name "David"
 
+#récupération du projet SiteWeb
+cd Documents/
+git clone https://github.com/thebabyboom/MonSiteWeb.git
+#en restant dans les Documents créer un répertoire pour les logs
+mkdir logs
+
 ##Config apache2
 cd /var/www/
 sudo ln -s /home/baby/Documents/David/DavidPHP .
 
 ###Copier les fichiers nécessaires aux endroits nécessaires
+cd Apache_conf/
+sudo cp 001-davidphp.conf /etc/apache2/sites-available/
+
+#editer le ficheir /etc/hosts pour ajouter l'alias du site
+sudo nano /etc/hosts
 
 ##Activation du site
 sudo a2ensite 001-davidphp.conf
+
+
+##Installation de Sublim Text
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+sudo apt-get install apt-transport-https
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+sudo apt-get update
+sudo apt-get install sublime-text
+
+
+#installation de virualBox 
+wget -q -O- http://download.virtualbox.org/virtualbox/debian/oracle_vbox_2016.asc | sudo apt-key add -
+echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+sudo apt-get update
+sudo apt-get install virtualbox
+sudo usermod -G vboxusers -a baby
+
+
+sudo apt-get install ubuntu-restricted-extras
+sudo apt-get install exfat-utils
+sudo apt-get install exfat-fuse

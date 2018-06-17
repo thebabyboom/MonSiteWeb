@@ -7,8 +7,18 @@
 	<meta name="keywords" content="babyboom, informatique, programmation, hesit" />
   <title>Mon administration</title>
   <link href="<?= WEBROOT; ?>css/mycss.css" rel="stylesheet"  />
-  <script type="text/javascript" src="<?= WEBROOT; ?>js/jquery.js"></script>
-  <?php if(isset($script)); ?> <?= $script; ?> <?php endif; ?>
+  
+<?php ob_start(); ?>
+<script src="<?= WEBROOT; ?>js/tinymce/tinymce.min.js"></script>
+  <script>
+ tinyMCE.init({
+    mode : "textareas"
+    });
+  </script>
+
+<?php $script=ob_get_clean(); ?>
+
+  <?php if(isset($script)); ?> <?= $script ?>
  </head>
 
  <body>

@@ -2,6 +2,6 @@
   </div>
 
 
-
+  	<script src="<?= WEBROOT; ?>js/jquery.js"></script> 
  </body>
 </html>
