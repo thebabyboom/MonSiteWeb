@@ -27,8 +27,13 @@ if(isset($_POST['name']) && isset($_POST['slug'])){
 		/**
 		* ENVOIS DES IMAGES
 		**/
+		//var_dump($_FILES); die();
 		$work_id = $db->quote($_GET['id']);
-		$image = $_FILES['image'];
+		$images = $_FILES['images'];
+		foreach($images['tmp_name'] as $k => $v){
+			var_dump($v);
+		}
+		die();
 		$extension = pathinfo($image['name'], PATHINFO_EXTENSION);
 		if(in_array($extension, array('jpg', 'png'))){
 			$db->query("INSERT INTO images SET work_id=$work_id, name=''");
@@ -90,11 +95,13 @@ include '../partials/header_admin.php';
 	</div>	
 	<?= csrfInput(); ?>
 	<div class="form-group">
-		<input type="file" name="image">
-	</div> 
+		<input type="file" name="images[]">
+		<input type="file" name="images[]" class="hidden" id="duplicate">
+	</div>
+	<p>
+		<a href="#" class="btn btn-success" id="duplicatebtn"> Ajouter une image</a>
+	</p> 
   <button type="submit" class="btn btn-default">Enregistrer</button>
 </form>
-
-
 
 <?php include '../partials/footer.php'; ?>

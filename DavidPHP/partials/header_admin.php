@@ -11,6 +11,16 @@
 <?php ob_start(); ?>
 <script src="<?= WEBROOT; ?>js/tinymce/tinymce.min.js"></script>
   <script>
+
+      (function(s){
+        $('#duplicatebtn').click(function(e){
+          e.preventDefault();
+          var $clone = $('#duplicate').clone().attr('id', '').removeClass('hidden');
+          $('#duplicate').before($clone);
+        })
+
+})(jQuery);
+
  tinyMCE.init({
     mode : "textareas"
     });

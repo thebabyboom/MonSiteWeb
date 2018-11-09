@@ -19,6 +19,7 @@ if(isset($_GET['delete'])){
 
 $select = $db->query('SELECT id, name, slug FROM categories');
 $categories = $select->fetchAll();
+
 ?>
 
 <h1> Les catégories </h1>

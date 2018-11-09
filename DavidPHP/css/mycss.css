@@ -109,6 +109,7 @@ a:not([href]):not([tabindex]):focus{
 }
 
 code,kbd,pre,samp{
+
 	font-family:monospace,monospace;
 	font-size:1em
 }
@@ -404,10 +405,17 @@ hr{
 }
 
 code,kbd,pre,samp{
+	width: 400px;
+	height: 60px;
 	font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace
 }
 
 code{
+
+	background-color: grey;
+	border: 2px solid green;
+	border-radius: 5px;
+	padding: 5px 5px 5px 5px;
 	font-size:87.5%;
 	color:#e83e8c;
 	word-break:break-word

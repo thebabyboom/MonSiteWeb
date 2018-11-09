@@ -1,0 +1,1 @@
+<P>'test d\'écriture dans un fichier'</p><P>'test d\'écriture dans un fichier'</p><P>'test d\'écriture dans un fichier'</p><P>'test d\'écriture dans un fichier'</p><P>'test d\'écriture dans un fichier'</p>
