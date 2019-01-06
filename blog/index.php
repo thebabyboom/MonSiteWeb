@@ -5,7 +5,7 @@
 ?>
 <html>
  <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
 	<meta name="description" content="Site personnel de babyboom" />
 	<meta name="keywords" content="babyboom, informatique, programmation, hesit" />
 	<link title="test" type="text/css" rel="stylesheet" href="Style/blog.css" media="screen" />
@@ -13,7 +13,6 @@
  </head>
 
 <body>
- <div id="page">
   <!--******************************************************************************-->
   <!--En tete de la page-->
    <div id="header">
@@ -21,6 +20,7 @@
    </div>
   <!-- **Fin d'en-tete**-->
   <!--******************************************************************************-->
+  <div id="page">
 
   <!--******************************************************************************-->
   <!-- ****Menu**** -->
@@ -46,7 +46,7 @@
   <ul class="menu">
     <li><a href="admin/article_edit.php">Ajouter ou modifier un article</a></li>
     <?php foreach($news as $el_news): ?>
-      <li><?= $el_news['News_Title']; ?></li>
+      <li><?= "<a href=".$el_news['News_Link'].">".$el_news['News_Title']."</a>" ?></li>
     <?php endforeach; ?>
   </ul>
 
@@ -60,19 +60,13 @@
     <h1>contenu du blog</h1>
     <?php foreach($news as $el_news): ?>
       <div class="article">
-  		<fieldset class="news">
-        <legend><?= $el_news['News_Day'].'/'.$el_news['News_Month'].'/'.$el_news['News_Year']; ?></legend>
-        <p><u><?= $el_news['News_Title']; ?></u></p>
-        <?= include 'articles/'.$el_news['News_Link'].'.php' ?>
+        <h2><?= $el_news['News_Title']; ?></h2>
+        <?= file_get_contents('articles/'.$el_news['News_Link'].'.php'); ?>
+        <br />
         <a href="admin/article_edit.php?id=<?= $el_news['News_ID']; ?>" >Update</a>
-		  </fieldset>
 
-		  <br/>
       </div>
     <?php endforeach; ?>
-
-
-
   </div>
  </div>
 </body>
