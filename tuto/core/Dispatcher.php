@@ -26,10 +26,13 @@
 
    function loadController(){
      $name = ucfirst($this->request->controller).'Controller';
+     //debug($this->request);
      $file = ROOT.DS.'controller'.DS.$name.'.php';
+     //debug($file);
      if (file_exists($file)){
        require $file;
      } else{
+       $name='Controller';
        $file = ROOT.DS.'controller'.DS.'PagesController.php';
        require $file;
      }

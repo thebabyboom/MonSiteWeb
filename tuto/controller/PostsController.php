@@ -11,13 +11,14 @@
      ));
      $d['total'] = $this->Post->findCount($conditions);
      $d['page'] = $d['total'] ;
+     //debug($d);
      $this->set($d);
    }
 
 
    function view($id){
      $this->loadModel('Post');
-     
+
      $d['page'] = $this->Post->findFirst(array(
                 'conditions' => array('online' => 1,'id' => $id, 'type'=>'post')
               ));

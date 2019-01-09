@@ -13,7 +13,7 @@
 
      foreach(Router::$routes as $v){
        if(preg_match($v['catcher'],$url,$match)){
-         debug($match);
+         //debug($match);
          $request->controller = $v['controller'];
          $request->action = $v['action'];
          foreach($v['params'] as $k=>$v){

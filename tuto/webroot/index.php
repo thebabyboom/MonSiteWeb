@@ -7,8 +7,9 @@
 
 
 //phpinfo();
- print_r(BASE_URL);
- print_r($_SERVER['REQUEST_URI']);
+//print_r($_SERVER['REQUEST_URL']);
+ //print_r(BASE_URL);
+ //print_r($_SERVER['SCRIPT_NAME']);
 
  require CORE.DS.'includes.php';
  new Dispatcher();
