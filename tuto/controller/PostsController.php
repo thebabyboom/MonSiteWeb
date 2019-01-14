@@ -16,14 +16,18 @@
    }
 
 
-   function view($id){
+   function view($id,$slug){
      $this->loadModel('Post');
 
-     $d['page'] = $this->Post->findFirst(array(
+     $d['post'] = $this->Post->findFirst(array(
+                'fields'     => 'id,slug,content,name',
                 'conditions' => array('online' => 1,'id' => $id, 'type'=>'post')
               ));
-     if(empty($d['page'])){
+     if(empty($d['post'])){
        $this->e404('Page introuvable');
+     }
+     if($slug != $d['post']->slug){
+       $this->redirect("posts/view/id:$id/slug:".$d['post']->slug,301);
      }
      $this->set($d);
    }

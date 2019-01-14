@@ -1,4 +1,4 @@
-<?php $title_for_layout = $page->name; ?>
-  <h1><?php echo $page->name; ?></h1>
-  <?php echo $page->content; ?>
+<?php $title_for_layout = $post->name; ?>
+  <h1><?php echo $post->name; ?></h1>
+  <?php echo $post->content; ?>
 </div>
