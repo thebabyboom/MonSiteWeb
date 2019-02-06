@@ -2,6 +2,11 @@
  class Router{
 
    static $routes = array();
+   static $prefixes= array();
+
+   static function prefix($url, $prefix) {
+     self::$prefixes[$url] = $prefix;
+   }
 
    /**
    * Permet de parser une url
@@ -30,7 +35,13 @@
        }
      }
      $params = explode('/',$url);
-     //print_r($params);
+     if(in_array($params[0],array_keys(self::$prefixes))){
+       $request->prefix = self::$prefixes[$params[0]];
+       array_shift($params);
+       //debug($params);
+     }
+     //debug($request);die();
+
      $request->controller = $params[0];
      $request->action = isset($params[1]) ? $params[1] : 'index';
      $request->params = array_slice($params,2);
@@ -52,7 +63,7 @@
       ,$r['origin']);
      $r['origin'] = '/^'.str_replace('/','\/',$r['origin']).'(?P<args>\/?.*)$/';
 
-     //debug($url);
+     debug($url);
      $params = explode('/', $url);
      foreach($params as $k=>$v){
        if(strpos($v,':')){
@@ -91,10 +102,15 @@
              $v['redir'] = str_replace(":$k",$w,$v['redir']);
            }
          }
-         return $v['redir'].$match['args'];
+         return BASE_URL.str_replace('//','/','/'.$v['redir']).$match['args'];
+       }
+       foreach(self::$prefixes as $k=>$v){
+         if(strpos($url,$v) === 0){
+           $url= str_replace($v,$k,$url);
+         }
        }
      }
-     return $url;
+     return BASE_URL.'/'.$url;
    }
 
  }

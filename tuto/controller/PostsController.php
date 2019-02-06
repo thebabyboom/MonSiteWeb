@@ -32,5 +32,32 @@
      $this->set($d);
    }
 
+   /**
+   * ADMIN
+   **/
+   function admin_index(){
+     $perPage = 10;
+     $this->loadModel('Post');
+     $conditions = array('type'=>'post');
+     $d['posts'] = $this->Post->find(array(
+       'fields' => 'id,name,online',
+       'conditions' => $conditions,
+       'limit' => ($perPage*($this->request->page-1)).','.$perPage
+     ));
+     $d['total'] = $this->Post->findCount($conditions);
+     $d['page'] = $d['total'] ;
+     //debug($d);
+     $this->set($d);
+   }
+
+   /**
+   * Permet de supprimer un article
+   **/
+   function admin_delete($id){
+     $this->loadModel('Post');
+     $this->Post->delete($id);
+     $this->redirect('admin/posts/index');
+   }
+
  }
 ?>

@@ -3,6 +3,7 @@
 
    public $url; //URL appellé par l'utilisateur
    public $page = 1;
+   public $prefix = false;
 
    function __construct(){
      $this->url = isset($_SERVER['REDIRECT_URL'])?$_SERVER['REDIRECT_URL']:'/';

@@ -93,7 +93,10 @@
      return $res->count;
    }
 
-
+   public function delete($id){
+     $sql = "delete from ($this->table) WHERE ($this->primaryKey) = $id";
+     $this->db->query($sql);
+   }
 
  }
 ?>

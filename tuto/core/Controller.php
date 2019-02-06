@@ -85,7 +85,7 @@
      return $c->$action();
    }
 
-   function redirect($url,$code){
+   function redirect($url,$code = null){
      if($code == 301){
        header("HTTP/1.0 301 Moved Permanently");
      }
