@@ -28,6 +28,7 @@
    </nav>
 
    <div class="container">
+     <?php echo $this->Session->Flash(); ?>
      <?php echo $content_for_layout; ?>
    </div>
 

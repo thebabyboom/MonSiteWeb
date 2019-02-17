@@ -16,8 +16,8 @@
         <td><?php echo $v->id; ?></td>
         <td><?php echo $v->name; ?></td>
         <td>
-          <a href="<?php echo ROUTER::url('admin/posts/edit/', $v->id); ?>">Editer</a>
-          <a onclick="return confirm('Voulez vous vraiment supprimer ce contenu');" href="<?php echo ROUTER::url('admin/posts/delete/', $v->id); ?>">Supprimer</a>
+          <a href="<?php echo ROUTER::url('./edit/'.$v->id); ?>">Editer</a>
+          <a onclick="return confirm('Voulez vous vraiment supprimer ce contenu');" href="<?php echo ROUTER::url('./delete/'.$v->id); ?>">Supprimer</a>
 
         </td>
       </tr>

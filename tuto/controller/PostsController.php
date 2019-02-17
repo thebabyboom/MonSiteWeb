@@ -51,12 +51,26 @@
    }
 
    /**
+   * Permet d'éditer un fichier
+   **/
+   function admin_edit($id=null){
+     if($this->request->data){
+       debug($this->request->data);
+     }
+     $this->loadModel('Post');
+     $this->request->data = $this->Post->findFirst(array(
+       'conditions' => array('id'=>$id)
+     ));
+   }
+
+   /**
    * Permet de supprimer un article
    **/
    function admin_delete($id){
      $this->loadModel('Post');
-     $this->Post->delete($id);
-     $this->redirect('admin/posts/index');
+     //$this->Post->delete($id);
+     $this->Session->setFlash('Le contenu a bien ete supprimé');
+     $this->redirect('../index');
    }
 
  }

@@ -63,7 +63,8 @@
       ,$r['origin']);
      $r['origin'] = '/^'.str_replace('/','\/',$r['origin']).'(?P<args>\/?.*)$/';
 
-     debug($url);
+
+     //debug($url);
      $params = explode('/', $url);
      foreach($params as $k=>$v){
        if(strpos($v,':')){
@@ -102,7 +103,8 @@
              $v['redir'] = str_replace(":$k",$w,$v['redir']);
            }
          }
-         return BASE_URL.str_replace('//','/','/'.$v['redir']).$match['args'];
+         //return BASE_URL.str_replace('//','/','/'.$v['redir']).$match['args'];
+         return $v['redir'].$match['args'];
        }
        foreach(self::$prefixes as $k=>$v){
          if(strpos($url,$v) === 0){
@@ -110,7 +112,7 @@
          }
        }
      }
-     return BASE_URL.'/'.$url;
+     return $url;
    }
 
  }
