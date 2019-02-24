@@ -1,4 +1,6 @@
 <?php
+ error_reporting(E_ALL);
+
  define('WEBROOT',dirname(__FILE__));
  define('ROOT',dirname(WEBROOT));
  define('DS',DIRECTORY_SEPARATOR);

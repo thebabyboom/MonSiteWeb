@@ -1,0 +1,149 @@
+a:link{
+	font-size: 12px;
+	font-family: Verdana;
+	text-decoration: underline;
+	font-weight: normal;
+	color:#009966;
+}
+
+a:hover{
+	font-size: 12px;
+	font-weight: normal;
+	color: #FFFF00;
+	text-decoration: underline;
+}
+
+a:visited{
+	font-size: 12px;
+	font-family: Verdana;
+	text-decoration: underline;
+	font-weight: normal;
+	color:#009966;
+}
+
+a:active{
+	font-size: 12px;
+	font-weight: normal;
+	color: #ff7500;
+	background-color: #999999;
+	text-decoration: underline;
+	font-style: italic;
+}
+
+body{
+	width:95%;
+	height:100%;
+	color:#000000;
+	font-size:13px;
+	margin-right:auto;
+	margin-left:auto;
+}
+#header{
+height : 150px;
+border:1px solid #000000;
+text-align:center;
+background-color:#88b;
+background-image:url(images/titre.png);
+background-repeat:no-repeat;
+background-position:center;
+}
+h1{
+}
+h2{
+color:#ff7500;
+height: 35px;
+font-style:italic;
+font-family:Georgia, serif;
+text-align: left;
+text-decoration:underline;
+font-weight: bold;
+margin:5px 0px 0px 10px;
+padding:5px 0px 0px 10px;
+font-size:20px;
+}
+h3{
+color:#88b;
+font-size:18px;
+}
+#menu{
+float:left;
+font-weight:bold;
+width:150px;
+margin: 5px 0.5px 0px 0px;
+height:450px;
+font-size:14px;
+}
+#menu dl{
+display:block;
+margin-top:5px;
+padding:0px;
+}
+#menu dt{
+color:#88b;
+height:20px;
+border:1px dashed black;
+padding:2px 2px 2px 2px;
+margin:3px 0px 3px 0px;
+}
+#menu dt:hover{
+background-color:#009966;
+}
+#menu a{
+font-weight:bold;
+color:#88B;
+text-decoration:none;
+}
+.sousmenu a{
+margin:0px 0.5px 0px 30px;
+}
+
+#content{
+background-image:url(images/testlogo.png);
+background-position:center;
+background-repeat:no-repeat;
+/*border:1px solid #000000;*/
+margin:5px 0px 0px 5px;
+padding:5px 5px 5px 5px;
+width:auto;
+height:450px;
+overflow:auto;
+}
+.liste{
+padding:5px 5px 5px 5px;
+margin:5px 5px 5px 5px;
+}
+.image{
+margin-left:165px;
+}
+legend{
+color:#009966;
+font-size:14px;
+}
+#news {
+width:500px;
+}
+#news  p{
+text-align:left;
+}
+/*.min_galerie{
+background-image:url(images/Galerie.png);
+background-repeat:no-repeat;
+width:140px;
+height:115px;
+}
+.min_galerie img{
+margin: 20px 0px 0px 20px;
+}*/
+
+#footer	{
+	margin: 1px 0px 0px 0px;
+	padding: 0.5px;
+	border-top: 1px dashed black;
+	width:auto;
+	height:30px;
+	}
+	
+#footer p {
+	text-align: center;
+	font-size: 12px;
+	}

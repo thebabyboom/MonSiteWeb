@@ -20,7 +20,7 @@
      }else {
        foreach(Router::$routes as $v){
          if(preg_match($v['catcher'],$url,$match)){
-           debug($match);
+           //debug($match);
            $request->controller = $v['controller'];
            $request->action = isset($match['action']) ? $match['action'] : $v['action'];
            $request->action = $v['action'];
